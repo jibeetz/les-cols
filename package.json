@@ -1,0 +1,13 @@
+{
+  "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "name": "alpine-paesse",
+  "scripts": {
+    "start": "node ./server.js"
+  },
+  "version": "1.0.0",
+  "devDependencies": {
+    "express": "^4.16.2"
+  }
+}

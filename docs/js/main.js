@@ -1,6 +1,4 @@
 
-
-
 function generateMiddleLatLng() {
     data.cols = data.cols.map((col) => {
 
@@ -46,14 +44,39 @@ for (let col of data.cols) {
             lineJoin: 'round'
         }
     ).addTo(map);
+
+    var tooltip = L.tooltip({
+        direction: 'center',
+        permanent: true,
+        interactive: true,
+        noWrap: true,
+        opacity: 1
+    });
+    tooltip.setContent(col.name);
+    tooltip.setLatLng(new L.LatLng(col.mid_latlng[0], col.mid_latlng[1]));
+    tooltip.addTo(map);
+
+    var el = tooltip.getElement();
+    el.style.pointerEvents = 'auto';
+    el.addEventListener('click', function(){
+        return goTo(col);
+    });
 }
 
 list.innerHTML = colsList;
 
+function goTo(col) {
+    setView(col.mid_latlng[0], col.mid_latlng[1]);
+}
+
 function zoomTo() {
     let colLat = this.getAttribute('data-lat');
     let colLong = this.getAttribute('data-long');
-    map.setView(new L.LatLng(colLat, colLong), 12, {animate: true});
+    setView(colLat, colLong);
+}
+
+function setView(lat, lng) {
+    map.setView(new L.LatLng(lat, lng), 12, {animate: true});
 }
 
 let list_items = document.getElementsByClassName('list_item');

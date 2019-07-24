@@ -190,5 +190,43 @@ let data = {
                 8.343776
             ],
         },
+        {
+            "encoded": "ah}wGa|rj@f@@t@FTJlA~@TBZMdAiAVOPElBLdBBpCHd@?vAKjACZEn@O^Q~B{An@i@h@YrAa@n@_@rA}@NG\\@RPBLD^G`@ILKHK@MCYQiAqA_@YWKyAU}@CwB?i@Dk@Je@@wAZkBPiABa@CYEy@_@MMOYKa@Eg@?s@Dc@L_@NYTUTOj@?f@FzAL~@?b@EZIjAe@r@MbBMb@?z@Bt@AvAUbAc@^Wl@g@f@q@r@s@d@]bA]vAw@rA{Aj@}@fAaCpAeENm@Ri@tAuC^i@n@w@Tc@\\aAZ{ARgBh@cDReBN_@h@q@Te@`@_CPe@Zm@Ja@BKAYC_ADWDGXILFh@bAXp@JNNJNDPAFCTQJQDYL}DLcAd@wA^{@Zk@~@uA|@eBf@o@j@e@dAu@t@_@|B}@`@WTWLOVs@h@{B`@gA\\q@^m@`@e@d@Yf@Q`Ae@dD}@`B_@b@UxAcAd@Ur@M^C\\B|@NRAPYBQ?QCOGKIGa@Ma@GWGuBs@SEi@AS@]JUJQNY^w@xAIFI@KAIIKW?OFg@Ze@f@Wj@_@n@]t@g@vA_B^[b@QZEP?ZBb@JXLRR`@v@n@bCVb@TT^TZJr@Hj@Ap@Q~@o@\\[j@_Av@aBv@aAxAcAfAmAZi@x@uBXi@t@iAj@m@n@c@z@e@hAu@xD}C~@e@t@YtDgBhBqAn@[vAk@l@[V[P_@j@iBZy@Xg@b@_@RKf@EXBXDZLVT`ApAVVLF\\EHEHMVyAvAqG~@_D^iAz@yBdCcHnA}C\\WxBeAr@]\\G`@@\\Fr@R~@\\j@JH?VEd@a@PWH]p@oDLe@Na@Vc@h@g@v@k@`A}@fA{@pAwARc@v@kAbA_Af@e@v@g@JIPULYh@w@`@}@nA}Ad@_@t@g@VM~@]rB{Ah@k@hAoBxAeE~BmGh@aAtAkBf@}@h@gA`AmC^s@Z_@VSp@_@d@KlAC`AOj@Sv@q@\\a@d@}@lAaDh@kArAgCfA}Al@o@vB_B~@gAp@y@`BwAh@i@p@y@fBkCh@m@~A{A^g@\\g@N_@^uBl@aEXmAd@gAl@{@`@a@d@[v@_@~By@vCmBj@Wr@Sv@Kj@CvBB`@KTKNSTw@dYcATB\\L\\F|AHxACrCU`A?\\BrAVzAl@r@Tx@ZbBb@rBVhAFf@?lBElAMpDw@nE}A~A_@~ASrBGvBFpAPhDr@fAPn@FpADbBCrAIpC_@nAYlAQlAId@Av@BrBRv@Db@@`BGj@?nAJ`@D`AXhFfB~ARn@Bx@H\\@ZC|@Qz@Et@Oh@Up@SXCdA?N@n@LrDrAt@^dATP@ZCdCWdCI|@IvA?hBNlB^xA\\tC~@~CXt@Lj@Lx@Z|BhAhBd@tAf@xAx@j@d@t@h@r@Xj@Nf@Hz@Fj@?b@@NB`@Jl@Z|AvA|@l@NFBV?f@DLPL`ATn@Jv@RzAZjCr@rXhJf@@DDDN@d@J^d@VT?r@EtB_@zAQnB?v@BpA?\\CrASxC{@ZEXAh@Bf@Ht@PnA^pAPtA@zBMr@Ad@BvALfADn@C~BQrA@h@BbANj@L`Bh@dB`@l@HlADlA?h@@lCZtAFbBIrCYz@CdA@tDRv@JxA\\j@Pf@Td@Zt@v@h@~@\\x@V~@\\fBXjBt@tDZrANb@Xn@`@l@`@b@XRZNj@Ln@BhFU`B?bBDr@V\\V\\b@j@~@t@pB\\`D?~@]~CIVWh@Of@IZKx@KRe@h@KRGTQrBKz@?RJdBRhAh@zAXvAVt@Jh@FLNPl@Z\\Jz@X`@F~@BVBb@P^HRNZJZFr@DZF\\@fBXLBVPj@NbC@`BGvAH`@C`@KvAOjC_Az@s@bAcANId@Q`@Yh@UTQpBuBZOxBG\\@p@E|@QjBH\\DVJ`@b@t@rAdAdATj@XbAJPJLRKF]Ga@EmASu@BMHKz@pCn@rAv@bCp@xAv@vATV^NdB@`BIT?lBW^?PDj@\\VVzAnB`@^b@R`Bl@bALFFt@tAGJEPFZIpAB\\HNDBD@VYVg@Pe@LQDAJFFNH^Fl@HXNRTHLA`@MfAi@l@S~@MP?HHB?XEd@ANEVER?r@b@pAbAtAz@`Ap@ZZ^h@TNbCz@P@VELB^PPL^RJD~@CPF@F@b@AFMTu@n@c@R[Hg@@}AEUD]P]JOB[GcAi@]KSEo@Ai@CSPBDdBPt@^b@b@x@lAXVPJTF^ANCJOJCPHZTPBXG\\YVMF?^Ft@`@LBt@?\\I\\C`@?h@VRBVCTK`@o@NKVYRGNFHHd@Z~@nATv@r@jARf@NPXl@d@v@Zz@ATIWe@s@u@w@k@_@m@g@_AcAGCM?MHEFCR@HNVVXfBvAp@~@LVDTLtAJf@NZh@j@d@`AD`@A`AF\\XlAFhA?XPn@`@j@X|@PZFVCvBCXDh@",
+            "name": "St. Bernhard Pass",
+            "average_grade": 6.1,
+            "climb_category": 5,
+            "distance": 25356.3,
+            "country": "Switzerland",
+            "total_elevation_gain": 1547.2,
+            "elevation_high": 2450.8,
+            "elevation_low": 903.6,
+            "start_latlng": [
+                46.03024980984628,
+                7.1470533683896065
+            ],
+            "end_latlng": [
+                45.869390945881605,
+                7.172109307721257
+            ],
+        },
+        {
+            "encoded": "y}b|Gsrbq@LJLbAYlAc@v@o@pBUtCAf@^f@p@LhA@t@R\\d@Lv@?lALhA`AtGRfBXd@b@d@Vl@R~@VzBhDlF~ChD^@n@e@Vq@ZgA^u@nAcAzBgAdAKNBfBj@`@~@Rl@PrB@dAAPw@`EQpA]xC@l@RlAC|@cBpGKzAc@|AcAtCQv@ShBIv@WbI?vCKz@_AzFGfADrAu@zF{@pIWz@cBxCmElJg@f@KVDh@dAvB?s@EOAu@FMLRNz@ZlEArAKhDOX}ASk@VU`@Ur@Hx@^d@tAhAp@P`@Gz@[`@Gd@a@Te@z@aAn@Wv@Nd@P`@d@h@XJI@WEm@Dm@N_@R^PbAb@h@p@nBz@zAXb@RRt@PPm@Uw@}@mBGq@NO|@f@X\\j@lAd@p@bAp@p@VbFrAzC`Bj@F~@?z@Yx@Fn@Nf@?NUOQyAm@Io@~@Ln@`@dAz@p@^pB`A`@b@V^f@Nb@D`@Kp@e@h@S~@^fAxA~@`BTh@\\nAVnAHv@n@|@bAn@vAnBnAvAdArALI?y@p@b@j@Jl@Rf@X~@p@TTt@pArANz@t@hHxIRFBm@I_@@O@LxBfClAr@j@j@Jh@VjDp@rAjCtDRf@MlASj@Hn@vGzJjCrCzE|CbE`CxA\\zBD|@LdA`@x@^nAzAnAbBvCnCl@dAjCfFr@pB|@bBfBrApAl@xALl@JZj@v@`Db@n@TFNIv@uBZcANsABe@SkAEs@NGD@b@`@b@l@h@x@xBbFPt@NdAS~COrA[dAgAtCIp@@pPV~Et@zDHl@Z|Dp@jWBbBJjC|ArPf@xDThAd@bA~BhDRpAx@TdCs@VEd@THHXz@E`G@hB^bENbA|@lDtB|CVTxA|@Xt@\\b@jANlAbAf@bBfBlCVn@x@dCVDPORu@J@Lj@PrBJf@n@dCVb@`@LrAkAT@RPNlAa@fCGh@Tj@v@zAbAhCHjB?j@Jp@XXt@zA\\DnBFvA\\hC~@n@f@PZDp@Mt@U~@q@`Ac@b@eBx@o@n@a@h@Qv@q@`DGhAM~CbAbEZX^CtC}@b@@RRHl@El@}@~C@j@R`@\\`@rALf@?d@HZ^Lj@?TWzABh@JbAZpBVz@d@t@^v@ZhAL`AGxA@FPH\\}@ZWb@Bb@HZj@tBxHxAnAvAz@d@P\\El@m@b@k@Vm@Gq@SgAN]PT^nADfAUhCEnCKz@Jb@RHTUx@kBb@k@^y@h@uBOkCTILVLrANjNMjA]nB[x@Yh@CRPZvBiBz@_@pBUhBPbBn@^TFr@Ot@El@N\\\\f@b@f@b@F`@WnAqAl@q@ZUb@I",
+            "name": "Grosse Scheidegg",
+            "average_grade": 7.6,
+            "climb_category": 5,
+            "distance": 15834.9,
+            "country": "Switzerland",
+            "total_elevation_gain": 1454.9,
+            "elevation_high": 1957.1,
+            "elevation_low": 727.5,
+            "start_latlng": [
+                46.714691,
+                8.210504
+            ],
+            "end_latlng": [
+                46.655962,
+                8.101902
+            ],
+        },
     ]
 }

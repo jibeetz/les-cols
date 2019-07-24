@@ -4,10 +4,10 @@
   "license": "ISC",
   "name": "alpine-paesse",
   "scripts": {
-    "start": "node ./server.js"
+    "start": "http-server app/ -a 0.0.0.0 -p 1111 -o"
   },
   "version": "1.0.0",
   "devDependencies": {
-    "express": "^4.16.2"
+    "http-server": "~0.8.0"
   }
 }

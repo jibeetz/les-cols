@@ -1,8 +1,8 @@
 <html>
   <head>
     <title>Cols alpins</title>
-    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
@@ -15,55 +15,6 @@
     <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
     <script type="text/javascript" src="https://rawgit.com/jieter/Leaflet.encoded/master/Polyline.encoded.js"></script>
     <script type="text/javascript" src="data.js"></script>
-
-    <script>
-
-    console.log('data', data);
-
-    let list = document.getElementById('list');
-
-    var map = L.map('map').setView([47.02167640440166, 8.653083890676498], 9);
-    L.tileLayer(
-        'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        }).addTo(map);
-
-    for (let col of data.cols) {
-
-        let colsList = '';
-            colsList += '<li>';
-            colsList += '<a href="#' + col.name.replace(/ /g, '_').toLowerCase() +'" ';
-            colsList += 'class="list_item" ';
-            colsList += 'data-lat="' + col.start_latlng[0] + '" ';
-            colsList += 'data-long="' + col.start_latlng[1] + '">';
-            colsList += col.name;
-            colsList += '</a>';
-            colsList += '</li>';
-
-        list.innerHTML += colsList;
-        var coordinates = L.Polyline.fromEncoded(col.encoded).getLatLngs();
-
-        L.polyline(
-            coordinates,
-            {
-                color: 'blue',
-                weight: 2,
-                opacity: .7,
-                lineJoin: 'round'
-            }
-        ).addTo(map);
-    }
-
-    function zoomTo() {
-        let colLat = this.getAttribute('data-lat');
-        let colLong = this.getAttribute('data-long');
-        map.setView(new L.LatLng(colLat, colLong), 12, {animate: true});
-    }
-
-    var list_items = document.getElementsByClassName('list_item');
-
-    Array.from(list_items).forEach(function(list_item) {
-        list_item.addEventListener('click', zoomTo);
-    });
-    </script>
+    <script type="text/javascript" src="main.js"></script>
   </body>
 </html>

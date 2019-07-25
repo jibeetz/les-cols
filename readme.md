@@ -14,7 +14,7 @@ Visit `http://127.0.0.1:1111/`
 
 - Add content
 - Hide other paths when one is selected
-- Click on tooltip triggers details
 - Prepare details
-- Filters
+- Click on tooltip triggers details
+- Filters on passes
 - Mobile view

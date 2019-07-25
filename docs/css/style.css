@@ -16,13 +16,15 @@ body {
 
 }
 
-.map-label {
-    background-color: rgba(255,255,255,0.8);
-    border: none;
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
     border-radius: 2px;
+    background: #fffc;
 }
 
-.map-label:before {
+.leaflet-popup-tip-container, .leaflet-popup-close-button {
     display: none;
+}
 
+.leaflet-popup-content {
+	margin: 10px;
 }

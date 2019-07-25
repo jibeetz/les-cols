@@ -15,9 +15,7 @@ generateMiddleLatLng()
 
 let list = document.getElementById('list');
 
-var token = 'pk.eyJ1IjoiamJlcm51cyIsImEiOiJjanlqMWppcHMwNTd1M25ueGZpeG5jMDY2In0.4PHyCpVuKgSULBgy-n0jmA';
-
-var mapBoxUrl = 'https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token=' + token;
+var mapBoxUrl = 'https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token=' + config.token;
 
 var streets = L.tileLayer(mapBoxUrl, {id: 'streets-v11'});
 var outdoors = L.tileLayer(mapBoxUrl, {id: 'outdoors-v9'});

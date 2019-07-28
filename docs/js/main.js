@@ -60,10 +60,10 @@ let map = L.map('map', {
     }).setView(mapInitCoordinates, 9);
 
 L.control.layers(baseMaps).addTo(map);
-map.zoomControl.setPosition('bottomright');
 
 var creditsOnMap = L.control.attribution().addTo(map);
 creditsOnMap.addAttribution(credits);
+map.zoomControl.setPosition('bottomright');
 
 for (let col of data.cols) {
 

@@ -6,7 +6,7 @@ let data = {
             "average_grade": 7.8,
             "climb_category": 5,
             "distance": 11107.9,
-            "country": "Switzerland",
+            "country": "CH",
             "total_elevation_gain": 867.2,
             "elevation_high": 1389.4,
             "elevation_low": 522.2,
@@ -25,7 +25,7 @@ let data = {
             "average_grade": 9.3,
             "climb_category": 3,
             "distance": 4816.25,
-            "country": "Switzerland",
+            "country": "CH",
             "total_elevation_gain": 448.4,
             "elevation_high": 1060.4,
             "elevation_low": 612,
@@ -44,7 +44,7 @@ let data = {
             "average_grade": 4.7,
             "climb_category": 5,
             "distance": 30302.4,
-            "country": "Switzerland",
+            "country": "CH",
             "total_elevation_gain": 1556.9,
             "elevation_high": 2308.7,
             "elevation_low": 872.5,
@@ -63,7 +63,7 @@ let data = {
             "average_grade": 7.7,
             "climb_category": 5,
             "distance": 15593.2,
-            "country": "Switzerland",
+            "country": "CH",
             "total_elevation_gain": 1197.2,
             "elevation_high": 2343.6,
             "elevation_low": 1147.6,
@@ -82,7 +82,7 @@ let data = {
             "average_grade": 7.1,
             "climb_category": 5,
             "distance": 13478.9,
-            "country": "Switzerland",
+            "country": "CH",
             "total_elevation_gain": 1077,
             "elevation_high": 2385.3,
             "elevation_low": 1433,
@@ -101,7 +101,7 @@ let data = {
             "average_grade": 5,
             "climb_category": 5,
             "distance": 17790.9,
-            "country": "Switzerland",
+            "country": "CH",
             "total_elevation_gain": 897.2,
             "elevation_high": 2399,
             "elevation_low": 1505.6,
@@ -120,7 +120,7 @@ let data = {
             "average_grade": 7.2,
             "climb_category": 5,
             "distance": 17973,
-            "country": "Switzerland",
+            "country": "CH",
             "total_elevation_gain": 1697,
             "elevation_high": 2315.4,
             "elevation_low": 1021.2,
@@ -139,7 +139,7 @@ let data = {
             "average_grade": 6.7,
             "climb_category": 5,
             "distance": 15181.4,
-            "country": "Switzerland",
+            "country": "CH",
             "total_elevation_gain": 1261.3,
             "elevation_high": 1529.6,
             "elevation_low": 517.1,
@@ -158,7 +158,7 @@ let data = {
             "average_grade": 7,
             "climb_category": 5,
             "distance": 12491.4,
-            "country": "Switzerland",
+            "country": "CH",
             "total_elevation_gain": 880.4,
             "elevation_high": 2047.2,
             "elevation_low": 1166.8,
@@ -177,7 +177,7 @@ let data = {
             "average_grade": 5.6,
             "climb_category": 5,
             "distance": 26551.2,
-            "country": "Switzerland",
+            "country": "CH",
             "total_elevation_gain": 1485.4,
             "elevation_high": 2113.8,
             "elevation_low": 632.4,
@@ -196,7 +196,7 @@ let data = {
             "average_grade": 6.1,
             "climb_category": 5,
             "distance": 25356.3,
-            "country": "Switzerland",
+            "country": "CH",
             "total_elevation_gain": 1547.2,
             "elevation_high": 2450.8,
             "elevation_low": 903.6,
@@ -215,7 +215,7 @@ let data = {
             "average_grade": 7.6,
             "climb_category": 5,
             "distance": 15834.9,
-            "country": "Switzerland",
+            "country": "CH",
             "total_elevation_gain": 1454.9,
             "elevation_high": 1957.1,
             "elevation_low": 727.5,
@@ -227,6 +227,141 @@ let data = {
                 46.655962,
                 8.101902
             ],
+        },
+        {
+            "encoded": "}kk{Gotry@V}@dBeFdC{Gd@iAv@sAjCcDtB_Dt@}@\\[\\UvBcAfCgA~@k@pIeHpGwFtEiHlCyEp@m@T[`AwBj@cAb@oAN]nA{B^w@`BeB|BoB`DmCd@i@|AaCjD{GfAkBlA_BpDyDT[Xq@b@uBFQJKLEL?LBLHHLXdBLh@LZ|AfClC~DZb@JHL?LELKP]NSPKREd@DdA^hAXL?RCRIPQd@{@T[NM^SXMf@Mt@[`@Mh@IZAh@Hr@Td@XTTb@p@p@Z~B\\lAp@JBR?pAKX@PDt@b@h@b@Vl@VnALPVL`@FRCr@[hAq@ZIPCv@@tAUd@ERDp@^tA`ANPd@TRH`@DpAEJCVSVc@Na@P_AN_@Zi@HYA]QmA@Y@WFYTk@NOXQtA]ZMpA_Af@QhCGtPSrAIp@?bAF`AMxDIzMOj[Y`GKrJKzCGfIG~BFdFf@jCb@vC`@dBNx@LfD\\\\HtAl@^Jp@J^@~AExAI|@M^?|@Bl@J|BfAjCfAp@`@h@PlAl@hDzAvMnFrEbBzDjBbCbA`@Jp@Fl@@`@ETKVY|@{AZ]XMj@Q~@w@x@g@JCJAHBRh@Tp@FLRNN?t@KvAGTE\\MdB}@^a@h@iARWf@a@r@]ZUTSVg@Nm@Dk@D_ELmBVaCLa@N]TYrAmAVSPGZAPFPJl@r@RLHBX@TIPUFOH}@`@iKReCPq@LSRQTIZ?TD~@`@ZHh@BZGXSLONYTq@\\mBHURSNGJ?RJNTH`@TvBJf@Zz@b@n@d@`@~@\\vBdA^JV@LCRMXc@jBgELk@De@Ag@QsC@q@JwAG[MKG?UNMZa@pCY`DG\\GPKLKFM@MAWQMUEQAS@]He@jA{CRs@Bs@EqA@]F[Ve@fAsA~@u@t@w@n@c@n@]VETBp@^VHVBd@Gt@OXITORUrAyBTYZUtAi@RMNSt@wAp@q@`@k@Rg@VkAL[lB_Cp@{Ad@s@nCkC|AoB`AaAL?JI^c@XUxCkA`CaBj@UtC}@\\IN?\\DjAn@lCp@ZBZIJGrAwANI^M`@EvDOb@E|JuAXGTUvA}BdAmAfCcEv@}AzBcBzAwALGNCL@NBdDpBfAr@f@P`AJfADl@AfAMTBTLRRLZH`@VfCJ^NZPVTNn@NV@hAGVDRRNZ^`BN\\PTTNVHV@VCfAYVCp@AVBxEdAr@B~AK\\@ZB\\JxAj@b@Hn@Dt@PVALCZSp@k@VKPCb@?`AN`@@x@QpAe@x@IxDLnBDt@Ef@Kr@Yl@_@VQj@q@Vc@\\o@X{@ZyANgAViCNw@H[L[Ze@\\[b@S`@OdDq@jA]|FkCdE{Ar@YPORQRUb@}@VmAVaCHi@Nc@^g@b@QVCvALj@@`Fk@rAIrD]pBYTKZc@NMHAv@?`BKd@MRMrAuAn@w@Xe@Pk@Ha@Z}DNi@V]\\SPE`@AnCAXENEn@c@vGwFXa@NYLs@De@Ag@QoDGgFEk@GSEQU[KKYKM?YBeCl@GAGCEGCWLg@~AeEd@yAtBmJr@wB`@uANqA|A}RDaDLeSXoT?yAE_BU{FMwAg@{DE_A?aAFgKHcAZwAP{A@gAIgC?i@Bi@NoAViA@a@CWKQOIM@KDQRY`AINQHOGU_@]eA]yAYy@q@{A_AiBQo@S_BM]GGKCK@KDONYn@QPG?ICMOAIFw@VcAR_@p@s@HUBYCQGMQKWAYNgBxAQFK@KEGICM?OPc@`@c@fBwAJS?a@GWIKMEKAMB_@Nq@j@_@RU@ECGMAWHYNUv@o@b@g@L]@]EQIOWSc@Q{@We@UUUU[Ys@WwASyBc@cDk@qFM_AIcBBeBPmC\\mBT_AVu@Ti@^u@xHcMl@sAZ_AZ{ANwAD_CGaBIiAO{@g@aC{AgJI_@Sg@Y_@[OQCS?[FoAl@YHGAKGGS?Q@OPa@zAyBp@iA\\s@F_@I_@IIKGKASDWNkCjCe@PKAKGGSBUHSj@y@JUFa@AWQWQIQA_AD]EUISKWSOSQ_@g@oBwAmIkAqGg@cBcCaGKa@SsAEMGKKEMDKJIZOfBMLO@w@cAeBkDwA{Bi@g@e@[gAg@KOAM?OJSj@MVC|BBnATRH^TT@RKZYb@e@PWJWF[@a@CWGUKUOQg@Y{Ae@m@_@mBgBkCsBeA_AiCiCSYM[Ca@BWHWNSx@i@bAg@ZGZCZ@X?TKt@s@zBoCTg@Ji@@u@GaAa@}EOu@Ym@qDwEMWIY",
+            "name": "Julierpass",
+            "average_grade": 4.1,
+            "climb_category": 5,
+            "distance": 26358.5,
+            "country": "CH",
+            "total_elevation_gain": 1123.8,
+            "elevation_high": 2245,
+            "elevation_low": 1162.4,
+            "start_latlng": [
+                46.594077,
+                9.603443
+            ],
+            "end_latlng": [
+                46.472196,
+                9.726818
+            ],
+        },
+        {
+            "encoded": "{ak}Gcr{u@Nh@j@dAdD`FXh@ZhAn@dD@VC^MVKJ[@SIMM]q@IKKCS?MNAXBPd@~AVd@lDfEf@`@d@VhAb@XPn@XfA\\pAp@ZFNHPRNV^z@`@jAJPRLz@BXBPF\\ZNTJVJJJDt@LVL|AbBHDBNJPLv@jK~DlKrDLi@Em@@CD@LPPLJNTZPf@XZl@zAZh@?DEBEACEY_Ae@{@W]a@WUIm@GuBs@i@GiAAoAQMDEP@HFNXHh@@~@\\ZZ\\z@JPHHJDPBt@IH?XLRNz@pAP`@Hl@Eb@IJOHSBYAaCu@gBc@cAQoD[Y@SJKJIZ?VBTR`@\\V\\Ld@XfAfA\\Vx@XvAPlAVPN^d@PJN@n@CP@NBRLJPFR?x@ObAK\\SRQBSGU]KY[uAQa@KM_@Wc@GU?y@RKA_@B[FWA{@BOAQKQSi@c@QCw@A_Ao@q@Q]O}@Wq@WcDgCcAe@_B_AIKS[SUmB{@w@EUGmAu@UMs@m@U]Yo@KIQ?IDGZ@VPd@r@jAjAdBnAtAd@`@j@^pB|Az@z@d@l@~AfDl@|@Vf@dAbDb@t@^^`DhBdAx@h@t@^n@l@jAVt@Jl@J~ADVl@lB@XCNEBKCMOs@_Cc@_A{AyB_AiAq@e@a@SaCc@o@SWKg@a@g@Y}@a@gA]e@Ue@a@a@g@{@{AMGEAMDCPJh@Vl@ZpAXp@HXPXb@d@bApAz@pA^Zh@~@`BvB\\\\RZHTLj@Tf@b@tBLT`@b@b@nAFd@@v@GdAKj@Y~@Gr@GfBDlA?PIPJ?LH@HPFJJNHFLVv@BTAJ?THb@A`AH`@IVJ|@Vn@DR?JFd@RZRRl@^L?NFXR`@n@\\v@JNp@r@`@Tf@d@f@j@TJf@j@Vj@PpAJ^JZBD^Vx@`@NPZt@B`@?nBEVWhAOdAGx@At@J^?TNvAZpBDhAEj@If@_@`BEX?d@LzB?dAGn@c@rBC\\@`@BNT`ALPZdAVl@Tx@r@dDl@~Db@|At@bERrBHzB?rAGjFDtAH|@b@nC\\~DLh@Nb@b@dAJf@D~@GhDHlBPtAn@bDb@~DLf@Nd@R`@T\\f@b@jCtBd@h@n@|@`@r@\\t@b@rAV~@VxAPxAHdAD~ACpCU|F?v@Bt@NnBXnCZpAVt@rApChO`ZhH`Lx@nAdAbBzA|BNVRj@d_@jhBZxBtA|MFf@J`@N^T^lGdIVb@f@tArIpX^|@d@n@ZZrF`Fb@j@R^Vt@r@jDRnA^pD^rAl@xAxCzGrDzIlBzDvAnDl@jA^^ZLz@PlC\\\\N~@X|Ar@rBv@LFFPERGDM?gAS_@?w@Jk@VWFQA]MK?C@GJ?RFLRJxAV\\Jt@h@~AnA^RZFz@@f@J`BhAp@`@j@RPRZt@Zb@|AlAvAxA`@t@j@~APZV\\xAvA\\d@LXHZ^zCDLJNVRZBpAUJ?FFBLKZ[b@]`@o@b@UFiBAUMQSq@eBUe@UUOGs@@u@Kc@CuBUWSe@u@KEG@EN?JDPhA|ATRf@^l@\\PH\\HLDBF?FCFGBG?a@YKCqBGQEkAs@_@c@KGK@IN@RHL`@`@p@x@PNn@d@n@XpAr@PNj@x@XP`@DNEXONEn@HNHFH`@p@ZTb@Hn@\\RBp@Bb@LJLr@dApBrAbBpAf@PlAPf@Lp@HrBCbAMfA[b@[lBcB`@e@Vq@Rc@RMLEH?bF~@XLJN@NEXQVMFw@Jg@LONa@p@UTOHq@PkAP_@DIBYZ]h@m@n@mA|@c@R_B^o@@s@EaBLg@@M?o@Kc@O_@?g@Hs@TUPCNBVNLT?hASL?VBt@VJDBF?NAFGBMCm@]W?OHKNELGf@?\\H~CFZDFJFLADEDGDSAUUuA@UFQNMR@^JPJJJDLDf@CrEP|D?XI\\c@bA_@h@KF_@?KCIGs@}@Q_@QgAIOEEG@EDEFAT\\dAPpBXtAd@rBh@nBJj@bCjHhAxDTl@Tz@h@xA~@bBJZBNARKFE?MEw@gAk@e@a@UuBy@YWk@q@yBkDKIKAKBEN@ZFN`@l@Rb@vAnE^|@T\\~@nA`AfBhAtAXb@lDnGlArBf@p@tAzAnBvA^`@Xb@Vn@V~AVpB",
+            "name": "Klausenpass East",
+            "average_grade": 5.7,
+            "climb_category": 5,
+            "distance": 21493.5,
+            "country": "CH",
+            "total_elevation_gain": 1258.4,
+            "elevation_high": 1890.2,
+            "elevation_low": 658.6,
+            "start_latlng": [
+                46.920143,
+                8.993785
+            ],
+            "end_latlng": [
+                46.868292,
+                8.855633
+            ],
+        },
+        {
+            "encoded": "og~zGgxmu@NFNBXAPETONMTa@VgBAo@BmAFgA?e@JwAb@kAh@_An@_Ap@mAn@eBR}@PkA\\aEBo@JwAXwAl@iBp@_At@w@VUd@W`Ay@x@g@VU`@Oz@i@p@Oj@GfAGr@GtAGb@Qd@a@RYf@gAZ_Ad@}@PQj@]xASxAOfA?f@BfAArAF^Ez@Mt@C^DZJd@?t@KrCy@NAFBJNCPQLMBQ@{@K_@ByAd@oB^q@XiAZoAXs@H_@H{@Zi@`@e@j@gEpGqDfE]j@Uh@e@nA{BvH[hBWhBEl@Mt@YdCMvA]fCOd@a@v@s@bAWf@Y`AEXAZ@t@JrBVlBFx@ItFLtCAdAMfBg@vAOj@[|AEn@C~ADp@TnAVnBDn@RhBNr@ZpBBx@E`Ae@bDIbAqA~HWzBEhAFzBXxBJd@f@vAl@|BHh@@r@CVSl@EA_@XKLw@R[DuAb@aCl@QFWTMTIh@C\\D^FHFZNXHBRBVAhAYt@IV?`@B`BXbAHPLDXAZS^SHOAcA_@]Ak@L{@`@UFM?a@AeBe@o@?c@H{Al@mBbAa@l@g@bBOnACt@EP@bAVzCBp@BhATzCDZNf@LTRXf@VRBZA^Mr@w@vAiBTc@f@wAV_@TU\\OVC`@?XLXR`@`@Xf@Xp@ZlAJjBJ~@Pl@h@|@Rp@FhA@`BAr@@XEt@MfAB~ABXFFNpAXdBf@|F@j@PhAXhDPdA?|AEl@UxB[dBHLIn@M@]jDc@xBQpB?jBJN?l@Dp@Hh@XdAt@fBTPPXPPlAbAfAbAh@`@NPRLb@d@zAfAt@Zr@^F?j@Tt@JvB`@~@Vd@Pr@`@TPZ`@f@hAPj@FZLbA@hAEj@OhAcB|GWxAYnCObC?b@O`BIhB?zADfBRpBJl@XvBRbDFrBP`ETjJTlALz@FTFx@}A`LVf@QKUh@m@jAa@lAw@lFYfAUlAUp@U`Am@`DEVBJYnA_@`A_BpDoA~CYbAc@rAs@rAi@z@}A|Ak@r@oApA_@f@[h@[l@]dAcBhEQh@Mp@wArCG@g@x@WLKHKb@s@nBk@lA]~@c@bAc@z@y@lBoAh@a@Ti@Je@B_@CyA]IDEI_AQu@UwAYQAqAP}@Z[FoBNcBHsALu@Jq@Bw@LeAHu@@gBZgA\\o@\\mCbA_Al@_AnA_AvB]hDKvBOpAWzA{@nEKt@KnAGjC?f@Br@Az@WdB_@tAU^QNQXQ`@Mf@Ub@Kh@Yv@QfAYz@Ov@GbE?x@Dj@f@pB@\\Cd@]f@MJKFs@LWHSPQ\\K`@i@zCiApC[f@i@jBe@bAWp@_AtCc@|AUd@Oj@a@bAQv@Y`CUnAMd@e@nAkBfD]|@GRC`@?|CU~EOfB[pBKfAg@bDYvAEHCNQd@GZSb@GDUp@ALUj@QTQd@W^Qb@GHMXOTc@f@OTe@d@}BnA[V_@NuDzBiARuANw@@IBSAGFU@w@N]RGFELQRIX[^]ZOTMVOh@c@lCS|@In@c@hBw@bCm@rBQ^CRA^MTO`@[\\MTI`@@HCF?PYx@cBvBo@l@mA|AuApB[TAJ}@rAs@~@QJo@VIAO@I?w@Hc@\\Ud@A^EVITEf@BNEfABL@TM|BGz@SjIKxBKh@a@hAOV]`@s@h@{BnAqAbAoB`AMLMDILwAnAm@R}A~@y@ZYD[@}@Ei@KMIQAwAg@MA_@ISIOCUBo@G{@Da@Fa@J_@ReC`Bo@T[DcAFSAeCD}@AeAKoBi@",
+            "name": "Passo del Lucomagno",
+            "average_grade": 5.4,
+            "climb_category": 5,
+            "distance": 17641.2,
+            "country": "CH",
+            "total_elevation_gain": 1207.8,
+            "elevation_high": 1918.4,
+            "elevation_low": 961.3,
+            "start_latlng": [
+                46.526808,
+                8.923084
+            ],
+            "end_latlng": [
+                46.563312,
+                8.801246
+            ],
+        },
+        {
+            "encoded": "oavyG_ojx@c@IUIo@]c@[WUa@k@g@cAi@cB}B}HyCoJmF_RU_A}@wFU}@m@iAm@y@_@WkBq@UOSWQ[Y_AUeAIw@GwE?qBFiAX}BBgAEw@MmAEoA\\iLB{AC_BG_C_@{LCu@Bw@Ds@JgAn@uEJg@b@eA|AkCV{@Hm@Bo@@iAIsUI_BKcAYgBa@iB[}@wHcROw@Ei@i@eSYwHG}@WoA}@wCOsAEsADiE@o@Ly@lAkEf@yBvAcNBcA?gCNmC@s@CaAKaB?sANgBHaBByBFs@Nc@zEkHN_@ZeA^u@`@a@l@]XSj@}@JYLm@Fs@TsF?iBGi@Ke@Yw@_@s@q@w@W]IQMe@Ci@CaDGy@Gg@gAwEIe@E{@Be@f@iDHy@@{@I{@Sw@S_@UYq@o@_@k@eAcDKc@OeAEaBFuAHw@AgAGu@Kg@M_AAYDi@R_ALaA@gAEg@S_Aw@uCu@aCQs@C[MiHDeAPiB?oA_AmJQw@Qe@_CsDe@}@wCeKm@aCm@mBEQGk@?k@Le@fBoCZS~@M|@SLKHQFk@AUGUKQaAeAUc@Ik@IkBO{@[iAWq@]m@u@eAMc@CU?SJe@fBmG`@iBF{@@iBK{AOi@KQMOQKeAYQKa@YMQKUC[@u@f@sDDu@?u@WgCIqACw@AeDBw@h@uEBw@CuAQmGQeB_@uCMeBMuFSmD?o@PuC?iAy@cOG}@M}@kAqDKm@ImA?aBRuAVuD?_AK_DG_AWsBaAiEYcBOuA@i@NkAG{ACuAKwAYaDi@sEc@uC?_CGs@@Ym@MgARIECGEaAAwAHwBRgBl@_DNaBDqAEcD?c@Bc@Ho@Nk@pAoDNaA?m@GcAq@aJ?yAHkBCmAKqASy@_@q@_BaCSe@UaAYkC?iAj@iLBgA?wBAwAE_AK}@m@}Cm@mC_CuIS_Ac@uC]oAu@wBW}@Kk@MaAG}A?eADeAJ{A~@kIN}B@aCK}CSeBc@wBeBiFq@sCKMKAc@VKBKCIKK]OaAe@_CQo@{@eC]aAYm@]g@a@e@IS?ODYnAqCJ_@?YGSoAsAUQ_@g@Y[e@aAUWQGy@M}@Cu@IaAGiAOSMGKOo@OmD?k@JoAb@sDPgATq@bAoBPo@Hu@j@uHFi@HWLQNCPDFFHPPxAFVJTRLTBJCHGFKJ_@Hu@H_Eb@sGRqGDqB?y@GwAImAQkASgAcAuDQcAKaAIgBQ_HKwACaA@YR{B?e@M_Ac@}AMq@?g@De@l@eBHg@D{@C_AkAwHS{A[uAk@cBMo@eAmOSuBgAuIw@wFKg@Qe@Sa@qEaHq@wAG[UcC?kAIiAi@cEm@sDKg@a@kAu@oAkH{K]s@]y@Mk@Km@McBCmABuFGuAMsA_@gBk@yAq@oAaDiDe@o@Ua@Sc@a@mAWqAMaAEi@CaAAwAb@oJBiBC}BQ_Ek@sJiAsS_A{Nq@mMKqEP}H?wAEeAGcA]wCyDwSeA{DqA{CsD_HiEyH{BiEm@mAa@gAq@uBuCsMe@cB]{@i@mA{B}DsAqBa@u@gCwDSSWMQAY?WEWOQSYk@gAaDIa@@WFINMz@c@dD_CNSHW@KEYMOIE_@Es@M_Bo@w@c@{@eAUSi@Se@Ga@MuAs@u@{@MIyCiAYQEIAWJStBuBd@_@\\Ed@@PEFGDKB]C[EKu@}@cByAg@Wa@K}@?[GOISSSc@_@g@yA}AOMa@Q{@OOEMSAKDSX]BIPcATi@^ONAd@@XDfADFANOFIBOA[IQUOe@Ok@c@_@k@a@y@o@gAg@e@a@WqA_@yBUoA]u@Iu@OoAQ]OQUGSAWD_@L_@v@gBf@s@~@cAd@]Z[j@s@FU@WAIISWQYK}E_Bi@CsAHa@@sAKWEe@Ow@[kAo@WI_@I}@Cg@MiBcA]WeAgA}AgBi@s@MKOGQAu@Dy@@oAO_ACQBUFq@\\cA\\o@LW@YCe@Ke@Q_Ai@[MaEgAaFkA_AQoBQ{SoAsAMs@OqBw@of@oS]SgFqBy@i@gBcBoCyBc@k@e@c@gEeFc@c@_@k@i@gAOk@Ge@KeAMkC?gAFeAAUGSEGQAMN_@l@St@KLOGEGGQ?WFU~@mCJm@?UAUc@sBCYBcCWaDHiBAk@E[c@wBQqAKg@Qa@W[eBe@m@]_@c@iA_BoC_Cg@g@a@m@g@gA_@mA]qAe@}BsAaEKi@OaAKwA?oBFoBRoBPaAVy@Zw@h@aA^cA^aBZgBRg@l@_ANc@Bk@IWIGKCK?UFSNwChDu@hAQPSFIAGGGICMB[Pc@xAuAT[JUTu@f@oCLc@`A}BRm@b@gBPe@LSJGZ?jAZ\\PLLRZLXJJDANI?c@O]mAwAa@Y[Me@Cc@@QGEG?IHY|ANx@PNJ~AzAb@r@Nd@Jt@DrBBJHDF?DGD[Cu@@wBCg@Ka@a@qAOUk@c@WWEO?IBGDCD@l@r@pB|ANLJRFV?XAXKv@?TDBDCJWT}ABY?g@EWO]AG@O?TTn@Nr@DhAFt@FPB@HM@K?kAJuAIeASu@SYOKy@_@EGEQBGDAZ^JFLAJQ?KEQc@i@YYMGsBa@OUWcAUQYIIM?IDCFAh@NV?DEBKAWMYOG[DICGEEQB]\\gAHc@?YAKGIICQ?qAZk@JwBYq@Kg@Ea@@{AR_@?OAOG_@S{CgCi@_@KE",
+            "name": "Malojapass",
+            "average_grade": 4.6,
+            "climb_category": 5,
+            "distance": 32128,
+            "country": "CH,IT",
+            "total_elevation_gain": 1482.4,
+            "elevation_high": 1753.6,
+            "elevation_low": 290.6,
+            "start_latlng": [
+                46.321044,
+                9.397769
+            ],
+            "end_latlng": [
+                46.399955,
+                9.695836
+            ],
+        },
+        {
+            "encoded": "avyzGgpwq@Fa@MwCPc@VY\\MZOr@o@`BmAbAa@`@M`AGRQHu@[[aB`@mAh@s@R_@Be@Ms@CQBSJML]RS@WASO[Ye@k@GUISYa@WUWIg@C]H]Rs@r@g@Zy@fA_@E@g@l@]l@s@f@}BNSNO^Ir@Jn@Kj@[p@WbDu@l@URS`AkCHa@JYh@q@rAeAVW~AgDLUTu@b@o@HSTyBDyB?aDXoCFkCFk@ZqAJmB@_@Gs@a@kAA]DIb@]NBv@z@PVd@~AP^f@h@`@Tf@RRCLIHW@YCk@k@aFA[EU]s@m@m@g@cAW_Au@aBQq@o@oBCOMmCEgBOwBFeDJiAHsBPs@Hy@J{@d@sAt@eCXaBXmA`@}@PU`A{A^kAl@u@NO\\e@jA{BhAkCn@gAj@u@tBgDfCwDh@s@P_@hBuCl@e@tAa@r@a@r@}@`CcE^_@`@[Za@Ti@^o@b@kARWLMx@c@b@QNKdAqAEc@LC^Yv@mAZk@ZaAZs@TYfAs@LMZi@lAwCNWNU`@c@b@YZa@^cAPo@\\aBLeANu@N_@dAmBOg@_AuAcAiBy@kEGk@@WHu@\\o@\\_@L]^uARi@n@cA|@gA^{@|@aB^i@p@c@xAoAnA{@r@y@`AyAt@q@TKhA]nAFPCPIjA}@f@[NORSR_@l@gA`@e@h@a@XKRCt@Hf@?h@Aj@IbB?VALEb@Wh@c@d@WbA[tA_ATEb@BREf@c@R]Na@P[NSPIj@GXB\\On@y@J]Tc@NOJQCIPOJ?FCh@i@jAaA`@c@JSVaBR{@J]j@eAdAkANINGd@Ir@GlBAd@CR?lAGTBVHb@Rf@^LNV\\LXT|@Jz@HtBF\\`@FPc@p@sCF{@Aa@m@mFUs@oAeCgA}Bo@oAQU_@WUEgAVU?}@NuADuACc@Je@Ds@Ck@Ik@OW@m@\\QFQ?Ce@PKRAd@If@[d@Qv@c@\\Of@Mb@?TC`@IJOrAOf@QZQt@y@Gg@QHU\\WVgALk@Ku@[g@Cm@Mm@AcAJU?m@Kc@OOCQBUA}@F_AT[Ew@u@k@c@e@g@Le@p@j@VNXJPCTBRAPKJS@OUa@_CgAq@a@m@KW_@HWVAbARlAf@TCDIKu@oAk@sA}@WU[g@UQUGWA[YT[J@fEdAzAh@hD~AJBXBpBC`@KX]f@w@DYPg@XGf@_@Xm@PSd@SLM^SPMTYj@SPQf@YREHOx@c@Xa@Rg@F[HoABm@LgAEcAYHQb@GXc@tA_@l@{BpAy@b@o@VQPg@PuAt@UFcAF]JYAa@Fc@IQIoAuAeAuAe@g@a@y@{@oAk@kAi@y@]_@y@mAWg@O]o@gASYo@k@mAk@gAs@UWcB{@e@Oc@_@Y_@i@aAYs@OSSQS_@QSSKs@k@OWAc@HQ^Pn@v@b@Tl@V^Vb@b@f@p@RPl@VRBT?ZEXMjBiBh@_@XOx@Cp@@l@Ht@BjAL",
+            "name": "Nufenenpass",
+            "average_grade": 8.4,
+            "climb_category": 5,
+            "distance": 12873.4,
+            "country": "CH",
+            "total_elevation_gain": 1077,
+            "elevation_high": 2421.2,
+            "elevation_low": 1344.2,
+            "start_latlng": [
+                46.503537,
+                8.317646
+            ],
+            "end_latlng": [
+                46.477981,
+                8.386707
+            ],
+        },
+        {
+            "encoded": "}~_|Gim`u@i@eCu@qH]mAaAa@i@XUTyGdLgBbDEd@Dp@LZ~@`Be@t@u@l@o@X{CuAsDc@_ASWgAUgCi@fBxFrXjL`HxErKh@dE?`FnK}Ah@EfFxEfGjF`@XtBGp@FBxAI~A`AfRLpAvAXxAaAnCkAnB?nBZpJpLrEpJzCxMl@dBjBTp@e@P_BHgADoFFcAx@wDN[`BsAnBTbAxA|@`BtFbL`AnAbCrCv@xAhAtEl@jEvBtSTlDd@jKErODhVi@jJUhNb@zTdB`Y@hDNlHK`C?bBM~@[bBEdDU~BAhAPtBGfB?lBVbAVfCDtBeAhGW|D?|@VzEA|Ba@lGCtCf@fCjAlF?j@c@hCeEhEm@zAnAdB~APh@Vp@b@BtAI`A{B|He@bG\\tJvBtHt@rAlDtJzAdF`@pIBnCMdLw@jLER{@lJG\\q@vBiAlB[xAz@lBtBIj@BnEnC`EfEhClGlB~Gn@hIPvGq@~G?zBvAnGnDhF|F|GlCpEHVzAtI~@|BbJvCZHdCQzBy@j@yBR{BVu@j@e@\\I\\^`ADb@l@r@rAfBjEbBvC|ArEvDfMb@~B^rL|@rIX|G\\pFn@`Ez@rGVxDzAxHHpElAvKBfDHpCjEpSXdBtApDxBdIvD~I|@bCrFpJXz@l@`Cp@vBl@nA`@l@d@f@lAjBl@zBz@tAZpAz@`LHdEHzHZvGD`@vA`DRN`AjBN|AC^BfC\\jB~@nDlAzBhCnEv@v@f@NxAHp@bAPv@TbBf@dCn@nC`@|@v@N^Qh@KTPl@vGRnC_@dHIfHXjBz@fAh@hAo@fBuA`@gAu@g@eCMiAQVTtBLtBHvCE|A@bEP|@[h@OUKwBIs@c@eC?yAYH`@jHO`B_@pBqAbFGf@Ez@Il@Q@Ek@XaFBsA?s@ScD][KZMbCq@hDa@bCk@pCEjDEp@g@vACgDUcBLyBF][GWpBaAxFq@pBsBzEIJa@]Rq@l@_Bf@s@YUYf@iAvA_AxB}@nDMlAsAZyAuAwAHs@fAc@bAa@nBmA~CWvAs@jBiCtAeArAYnGgB~By@O",
+            "name": "Oberalppass Est",
+            "average_grade": 4.4,
+            "climb_category": 5,
+            "distance": 21767.8,
+            "country": "CH",
+            "total_elevation_gain": 1375.4,
+            "elevation_high": 2050.9,
+            "elevation_low": 1089.1,
+            "start_latlng": [
+                46.699515,
+                8.854774
+            ],
+            "end_latlng": [
+                46.659194,
+                8.670988
+            ],
+            "group": "Oberalppass"
+        },
+        {
+            "encoded": "ajs{G_~ms@Ge@s@q@c@?i@EM]?IVYXFh@`@f@Jf@M`@i@Nw@DsAGqAWsAM]c@}@e@a@g@[o@k@OUWw@A}@@QL{@\\mANgAGaAW}@a@_@_@Om@Be@L]b@a@lAQ~AQpCSnBYj@g@Te@KYe@Kw@BaAToAp@aDv@qCtBiGNcATuELaA`@{@t@aA\\{@@s@I[c@]c@Ha@h@IT_ArEm@fC_@nAe@lA_A`BcBfCoAnCs@nA{@bAw@n@y@`@c@EdEiGhEmLXeBBwAMiAgAkDWuACUA{AHyAP_A`AaDH}@Qa@GEe@FSd@W`COj@M^wAtCSbAIpBQxAm@pC_@xE_@pBa@bB_@pA_@b@G@SUEe@j@aENgBF_BA}BMaFAkBRcJAaAE_AKoAc@cD]oAUS]Cc@`@Ot@Al@D|BOlAOr@Wz@OjABvA^|CIb@YHUWc@iDaAoDSmAE_AAwEKoEe@sHKaAQoFO_GYcFw@kGU}Ac@sBc@_B_AqCcF{McBiFg@iAw@eAgCsC_AqAaCqD}AiCiBqCmGaK_B_C{@iAu@y@w@u@uDcEaBuBo@eAiBuDm@yAc@wAo@gBi@y@{@}@}A}@iAeAm@iAa@wA[{AyAoKo@sDiBcGa@sBKo@K}AQkEYsB]sBcAiEScBA{AHsB@mAUqBu@kDsEuPyAuGo@uDuJyz@DeCRsFTaDf@}B|@_CP]lAgB`AcAn@a@bAMt@Ph@Rh@Hd@I",
+            "name": "Oberalppass from Andermatt",
+            "average_grade": 5.5,
+            "climb_category": 5,
+            "distance": 10689.5,
+            "country": "CH",
+            "total_elevation_gain": 589.288,
+            "elevation_high": 2034.8,
+            "elevation_low": 1447.9,
+            "start_latlng": [
+                46.6347387,
+                8.5963277
+            ],
+            "end_latlng": [
+                46.6587435,
+                8.671133
+            ],
+            "group": "Oberalppass"
         },
     ]
 }

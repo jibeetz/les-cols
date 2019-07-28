@@ -39,20 +39,22 @@ body {
 	margin: 10px;
 }
 
-.start_icon {
+.start_icon, .finish_icon {
     width: 16px;
     height: 16px;
-    background-color: #3abd3a;
+	border-width: 2px;
+	border-style: solid;
 	border-radius: 50%;
-	border: 2px solid #0b5a0b;
+}
+
+.start_icon {
+    background-color: #3abd3a;
+	border-color: #0b5a0b;
 }
 
 .finish_icon {
-    width: 16px;
-    height: 16px;
     background-color: white;
-    border: 2px solid black;
-    border-radius: 50%;
+    border-color: black;
 }
 
 .leaflet-interactive {

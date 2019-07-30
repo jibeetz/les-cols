@@ -10,9 +10,9 @@ const selectedListItemClass = 'selected';
 const startMarkerTitle = 'Start';
 const finishMarkerTitle = 'Finish';
 
-const streets = L.tileLayer(mapBoxUrl, {id: 'streets-v11'});
-const outdoors = L.tileLayer(mapBoxUrl, {id: 'outdoors-v9'});
-const satellite = L.tileLayer(mapBoxUrl, {id: 'satellite-streets-v11'});
+const streets = L.tileLayer(mapBoxUrl, {id: 'streets-v11', tileSize: 512, zoomOffset: -1});
+const outdoors = L.tileLayer(mapBoxUrl, {id: 'outdoors-v9', tileSize: 512, zoomOffset: -1});
+const satellite = L.tileLayer(mapBoxUrl, {id: 'satellite-streets-v11', tileSize: 512, zoomOffset: -1});
 // https://docs.mapbox.com/api/maps/#styles
 
 const baseMaps = {

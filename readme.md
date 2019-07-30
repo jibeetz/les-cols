@@ -23,22 +23,23 @@ Visit `http://127.0.0.1:1111/`
 
 #### Passes to add
 
-- Ofenpass
-- Pragelpass
-- San Bernardinopass
-- Simplonpass
-- Splügenpass
-- Sustenpass
-- Umbrailpass
+- Ofenpass - Done
+- Pragelpass - Done
+- San Bernardinopass - Done
+- Splügenpass - Done
+- Sustenpass - Done
+- Umbrailpass - Done
 
 #### Passes with many sides
 
 - Oberalppass - Done
-- Nufenenpass
-- Sustenpass
-- Pragelpass
-- Furkapass
+- Sustenpass - Done
+- Pragelpass from East - Done
+- Umbrailpass from Bormio - Done
+- Furkapass from Oberwald - Done
 - Berninapass
-- Flüelapass
+- Nufenenpass
+- Flüelapass from Davos
 - Klausenpass
-- Umbrailpass
+- Ofenpass from Zernez
+- San Bernardino from Chur

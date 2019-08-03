@@ -20,6 +20,7 @@ Visit `http://127.0.0.1:1111/`
 - Search filter
 - Mobile view
 - Load pass via url hash
+- Search countries, mountain range with synonyms
 
 #### Passes to add
 

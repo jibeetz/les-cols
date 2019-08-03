@@ -4,8 +4,8 @@ const mapInitCoordinates = [47.02167640440166, 8.653083890676498];
 const startIcon = L.divIcon({className: 'start_icon'});
 const finishIcon = L.divIcon({className: 'finish_icon'});
 
-const colNormalColor = 'blue';
-const colHoverColor = 'red';
+const colNormalColor = '#0026af';
+const colHoverColor = '#008aff';
 const selectedListItemClass = 'selected';
 const startMarkerTitle = 'Start';
 const finishMarkerTitle = 'Finish';
@@ -24,13 +24,16 @@ const baseMaps = {
 const credits = '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>';
 
 const list_items = document.getElementsByClassName('list_item');
+const infos = document.getElementById('infos');
+const colsList = document.getElementById('list');
+const toggleListTrigger = document.getElementById('toggle_list_trigger');
+const search_input = document.getElementById('search_input');
 
-let colsList = '';
+let map= {};
 let  selectedCol;
 let isSelectedCol = false;
 let hoveredCol;
 let colsL = [];
-let list = document.getElementById('list');
 
 function generateMiddleLatLng() {
     data.cols = data.cols.map((col) => {
@@ -52,31 +55,20 @@ function setColOpacity(col, opacityLevel) {
     col.finishMarker.setOpacity(opacityLevel);
 }
 
-generateMiddleLatLng()
+function setupMap() {
+    map = L.map('map', {
+        attributionControl: false,
+        layers: [streets]
+        }).setView(mapInitCoordinates, 9);
 
-let map = L.map('map', {
-    attributionControl: false,
-    layers: [streets]
-    }).setView(mapInitCoordinates, 9);
+    L.control.layers(baseMaps).addTo(map);
 
-L.control.layers(baseMaps).addTo(map);
+    var creditsOnMap = L.control.attribution().addTo(map);
+    creditsOnMap.addAttribution(credits);
+    map.zoomControl.setPosition('bottomright');
+}
 
-var creditsOnMap = L.control.attribution().addTo(map);
-creditsOnMap.addAttribution(credits);
-map.zoomControl.setPosition('bottomright');
-
-for (let col of data.cols) {
-
-    colsList += '<li>';
-    colsList += '<a href="#' + col.name.replace(/ /g, '_').toLowerCase() +'" ';
-    colsList += 'class="list_item" ';
-    colsList += 'data-name="' + col.name + '" ';
-    colsList += 'data-lat="' + col.mid_latlng[0] + '" ';
-    colsList += 'data-long="' + col.mid_latlng[1] + '">';
-    colsList += col.name;
-    colsList += '</a>';
-    colsList += '</li>';
-
+function applyPathsOnMap (col) {
     let coordinates = L.Polyline.fromEncoded(col.encoded).getLatLngs();
 
     let colPolyline = L.polyline(
@@ -89,11 +81,11 @@ for (let col of data.cols) {
         }
     ).addTo(map).bindPopup(col.name, {autoPan: false}).on('click', function() { console.log('col', col.name);});
 
-    let startMarker = L.marker([col.start_latlng[0], col.start_latlng[1]],{
+    let startMarker = L.marker([col.start_latlng[0], col.start_latlng[1]], {
         icon: startIcon,
         title: startMarkerTitle
     }).addTo(map);
-    let finishMarker = L.marker([col.end_latlng[0], col.end_latlng[1]],{
+    let finishMarker = L.marker([col.end_latlng[0], col.end_latlng[1]], {
         icon: finishIcon,
         title: finishMarkerTitle
     }).addTo(map);
@@ -105,7 +97,51 @@ for (let col of data.cols) {
     colsL.push(colPolyline);
 }
 
-list.innerHTML = colsList;
+function addColsToList(col) {
+
+    let colsListItem = '<li>';
+    colsListItem += '<a href="#' + col.name.replace(/ /g, '_').toLowerCase() +'" ';
+    colsListItem += 'class="list_item" ';
+    colsListItem += 'data-name="' + col.name + '" ';
+    colsListItem += 'data-lat="' + col.mid_latlng[0] + '" ';
+    colsListItem += 'data-long="' + col.mid_latlng[1] + '">';
+    colsListItem += col.name;
+    colsListItem += '</a>';
+    colsListItem += '</li>';
+
+    colsList.innerHTML += colsListItem;
+}
+
+function addEventsOnList() {
+    Array.from(list_items).forEach(function(list_item) {
+        list_item.addEventListener('click', zoomTo);
+        list_item.addEventListener('mouseenter', mouseenterCol);
+        list_item.addEventListener('mouseleave', mouseleaveCol);
+    });
+}
+
+function generateApp() {
+
+    generateMiddleLatLng()
+
+    setupMap();
+
+    for (let col of data.cols) {
+        addColsToList(col);
+        applyPathsOnMap(col);
+    }
+
+    addEventToMap();
+    addEventsOnList();
+    addEventToInfos();
+    setupSearch();
+}
+
+function addEventToInfos() {
+    toggle_list_trigger.addEventListener('click', function(){
+        infos.classList.toggle('hidden');
+    });
+}
 
 function removeSelectedState() {
     Array.from(list_items).forEach(function(list_item) {
@@ -149,36 +185,58 @@ function setView(lat, lng) {
     map.setView(new L.LatLng(lat, lng), 12, {animate: true});
 }
 
-map.on('moveend', function(e){
+function addEventToMap() {
+    map.on('moveend', function(e){
 
-    if(isSelectedCol) {
-        console.log('drag zoom');
-        for (var colL of colsL) {
-            setColOpacity(colL, 1);
-        }
-
-        isSelectedCol = false;
-        selectedCol = undefined;
-
-        removeSelectedState();
-    }
-
-    if(typeof selectedCol !== 'undefined') {
-
-        for (var colL of colsL) {
-            if(colL !== selectedCol){
-                setColOpacity(colL, 0.2);
-            }else{
+        if(isSelectedCol) {
+            console.log('drag zoom');
+            for (var colL of colsL) {
                 setColOpacity(colL, 1);
             }
+
+            isSelectedCol = false;
+            selectedCol = undefined;
+
+            removeSelectedState();
         }
 
-        isSelectedCol = true;
-    }
-})
+        if(typeof selectedCol !== 'undefined') {
 
-Array.from(list_items).forEach(function(list_item) {
-    list_item.addEventListener('click', zoomTo);
-    list_item.addEventListener('mouseenter', mouseenterCol);
-    list_item.addEventListener('mouseleave', mouseleaveCol);
-});
+            for (var colL of colsL) {
+                if(colL !== selectedCol){
+                    setColOpacity(colL, 0.4);
+                }else{
+                    setColOpacity(colL, 1);
+                }
+            }
+
+            isSelectedCol = true;
+        }
+    })
+}
+
+function setupSearch() {
+    search_input.addEventListener('keyup', function(e) {
+
+        let searchText = this.value.toLowerCase();
+        let results = data.cols.filter(object => {
+
+            let isResultsName = object.name.toLowerCase().indexOf(searchText) !== -1;
+
+            return isResultsName;
+
+        });
+
+        Array.from(list_items).forEach(function(list_item) {
+
+            let list_items_results = results.find(r => {
+                return r.name === list_item.getAttribute("data-name");
+            } )
+
+            let updateListItem = (list_items_results) ? 'remove' : 'add';
+            list_item.parentElement.classList[updateListItem]('hidden');
+        });
+    });
+}
+
+generateApp();

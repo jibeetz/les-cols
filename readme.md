@@ -21,6 +21,7 @@ Visit `http://127.0.0.1:1111/`
 - Mobile view
 - Load pass via url hash
 - Search countries, mountain range with synonyms
+- Search should filter on the map
 
 #### Passes to add
 

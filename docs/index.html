@@ -9,8 +9,13 @@
     <div id="map" style="width: 100%; height: 100%"></div>
 
     <div id="infos">
-        <button>Toggle List</button>
-        <ul id="list"></ul>
+        <button id="toggle_list_trigger">Toggle List</button>
+        <div id="search">
+            <input type="text" id="search_input" value=""  placeholder="Search">
+        </div>
+        <div id="infos_wrapper">
+            <ul id="list"></ul>
+        </div>
     </div>
 
     <script src="js/libs/leaflet.js"></script>

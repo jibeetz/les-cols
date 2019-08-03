@@ -16,21 +16,63 @@ body {
     z-index: 1000;
 	width: 250px;
     background-color: #fbfbfb;
-    min-height: 100vh;
+    transition: transform 0.2s;
+}
+
+#infos.hidden {
+    transform: translate3d(-250px, 0, 0);
+}
+
+#infos_wrapper {
+    height: calc(100vh - 57px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+#search {
+    padding: 15px;
+}
+
+#search input {
+    width: 100%;
+	padding: 7px 10px;
+	border: none;
+}
+
+#toggle_list_trigger {
+    position: absolute;
+	right: -44px;
+	width: 44px;
+	height: 44px;
+	background: #fbfbfb;
+	border: none;
 }
 
 #list {
     margin: 0;
-    padding: 10px 0;
+    padding: 0 0 15px;
 }
 
 #list li {
     list-style: none;
-    padding: 3px 10px;
+    padding: 0;
+    transition: opacity 0.3s;
 }
 
-#list li.selected{
-    background-color: blue;
+#list li.hidden {
+    opacity: 0.2;
+}
+
+#list li a{
+    list-style: none;
+    padding: 5px 15px;
+    display: block;
+    text-decoration: none;
+    color: #0026af;
+}
+
+#list li a:hover, #list li.selected a{
+    background-color: #eaeaea;
 }
 
 .leaflet-popup-content-wrapper, .leaflet-popup-tip {

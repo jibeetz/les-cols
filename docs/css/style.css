@@ -1,3 +1,144 @@
+
+.leaflet-control.elevation {
+  position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+.leaflet-control.elevation .background {
+  background-color: rgba(70, 130, 180, 0.8);
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  overflow: visible;
+}
+
+.leaflet-control.elevation .axis line,
+.leaflet-control.elevation .axis path {
+  stroke: #2D1130;
+  stroke-width: 2;
+  fill: none;
+}
+
+.leaflet-control.elevation .grid .tick line {
+  stroke: #EEE;
+  stroke-width: 1px;
+  shape-rendering: crispEdges;
+}
+
+.leaflet-control.elevation .grid path {
+  stroke-width: 0;
+  pointer-events: none;
+}
+
+.leaflet-control.elevation .axis text {
+  text-anchor: end;
+  fill: #000;
+  font-weight: 700;
+}
+
+.leaflet-control.elevation .area {
+  fill: #4682B4;
+  stroke: #000;
+  stroke-width: 1.8;
+  paint-order: stroke fill;
+}
+
+.leaflet-control.elevation .mouse-focus-line {
+  stroke: #0D1821;
+  stroke-width: 1;
+  pointer-events: none;
+}
+
+.leaflet-control.elevation .mouse-focus-label {
+  fill: #000;
+  fill-opacity: 0.75;
+  pointer-events: none;
+}
+
+.leaflet-control.elevation .mouse-focus-label-text {
+  fill: #FFF;
+  pointer-events: none;
+}
+
+.leaflet-control.elevation .mouse-drag {
+  fill: rgba(23, 74, 117, 0.4);
+}
+
+.leaflet-control.elevation .elevation-toggle {
+  cursor: pointer;
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.4);
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  width: 36px;
+  height: 36px;
+  background-color: #F8F8F9;
+}
+
+.leaflet-control.elevation-collapsed .background {
+  display: none;
+}
+
+.leaflet-control.elevation-collapsed .elevation-toggle {
+  display: block;
+}
+
+.leaflet-overlay-pane .height-focus {
+  stroke: #000;
+  fill: #FFF;
+}
+
+.leaflet-overlay-pane .height-focus.line {
+  pointer-events: none;
+  stroke-width: 2;
+}
+
+.leaflet-overlay-pane .height-focus-label {
+  font-size: 14px;
+  font-weight: 600;
+  fill: #000;
+  paint-order: stroke;
+  stroke: #FFF;
+  stroke-width: 2px;
+}
+
+
+.lime-theme.leaflet-control.elevation .background {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.lime-theme.leaflet-control.elevation .axis line,
+.lime-theme.leaflet-control.elevation .axis path {
+  stroke: #566B13;
+}
+
+.lime-theme.leaflet-control.elevation .grid .tick line {
+  stroke: #CCC;
+}
+
+.lime-theme.leaflet-control.elevation .mouse-drag {
+  fill: rgba(99, 126, 11, 0.4);
+}
+
+.lime-theme.leaflet-control.elevation .area {
+  fill: #9CC222;
+}
+
+.lime-theme.leaflet-control.elevation .mouse-focus-line {
+  stroke: #101404;
+}
+
+.lime-theme.height-focus {
+  stroke: #000;
+  fill: #9CC222;
+}
+
+.lime-theme.elevation-polyline {
+  stroke: #566B13;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -111,3 +252,22 @@ body {
 .leaflet-interactive {
 	transition: 0.3s;
 }
+
+#elevation-div {
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    height: 25%;
+    font: 12px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+.data-summary {
+    font-size: 12px;
+    position: absolute;
+    bottom: 0;
+    left: 45px;
+  }
+
+  .data-summary .summaryvalue {
+    font-weight: bold;
+  }

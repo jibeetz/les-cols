@@ -1,0 +1,377 @@
+[
+    {
+        "id": 641505,
+        "name": "Ibergeregg West",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ]
+    },
+    {
+        "id": 644489,
+        "name": "Brünigpass",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ]
+    },
+    {
+        "id": 628751,
+        "name": "Albulapass",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ]
+    },
+    {
+        "id": 9280402,
+        "name": "Berninapass from San Carlo",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ],
+        "group": "Berninapass"
+    },
+    {
+        "id": 21095314,
+        "name": "Flüelapass from Susch",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ],
+        "group": "Flüelapass"
+    },
+    {
+        "id": 15258369,
+        "name": "Furkapass form Hospental",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ],
+        "group": "Furkapass"
+    },
+    {
+        "id": 1993437,
+        "name": "Furkapass form Oberwald",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ],
+        "group": "Furkapass"
+    },
+    {
+        "id": 4526973,
+        "name": "Forcola di Livigno",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ]
+    },
+    {
+        "id": 10016476,
+        "name": "Glaubenbergpass",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ]
+    },
+    {
+        "id": 18290824,
+        "name": "Gotthardpass",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ]
+    },
+    {
+        "id": 18259634,
+        "name": "Grimselpass",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ]
+    },
+    {
+        "id": 1806405,
+        "name": "St. Bernhard Pass",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ]
+    },
+    {
+        "id": 7091936,
+        "name": "Grosse Scheidegg",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ]
+    },
+    {
+        "id": 14794608,
+        "name": "Julierpass",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ]
+    },
+    {
+        "id": 17933647,
+        "name": "Klausenpass East",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ],
+        "group": "Klausenpass"
+    },
+    {
+        "id": 9662203,
+        "name": "Passo del Lucomagno",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ]
+    },
+    {
+        "id": 6995403,
+        "name": "Malojapass",
+        "countries": [
+            "CH",
+            "IT"
+        ],
+        "mountain_range": [
+            "alps"
+        ]
+    },
+    {
+        "id": 18290760,
+        "name": "Nufenenpass from Ulrichen",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ],
+        "group": "Nufenenpass"
+    },
+    {
+        "id": 11484656,
+        "name": "Oberalppass Est",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ],
+        "group": "Oberalppass"
+    },
+    {
+        "id": 1223589,
+        "name": "Oberalppass from Andermatt",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ],
+        "group": "Oberalppass"
+    },
+    {
+        "id": 10252652,
+        "name": "Ofenpass from Confine",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ],
+        "group": "Ofenpass"
+    },
+    {
+        "id": 14904557,
+        "name": "Pragelpass from Muotathal",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ],
+        "group": "Pragelpass"
+    },
+    {
+        "id": 839740,
+        "name": "Pragelpass East",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ],
+        "group": "Pragelpass"
+    },
+    {
+        "id": 14693166,
+        "name": "San Bernardino from Lostallo",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ],
+        "group": "San_Bernardino"
+    },
+    {
+        "id": 9588280,
+        "name": "Splügenpass",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ]
+    },
+    {
+        "id": 18415641,
+        "name": "Sustenpass from Innertkirchen",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ],
+        "group": "Sustenpass"
+    },
+    {
+        "id": 18608372,
+        "name": "Sustenpass from Wassen",
+        "distance": 17666.5,
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ],
+        "group": "Sustenpass"
+    },
+    {
+        "id": 9986254,
+        "name": "Umbrailpass from Valchava",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ],
+        "group": "Umbrailpass"
+    },
+    {
+        "id": 10331153,
+        "name": "Umbrailpass from Bormio",
+        "countries": [
+            "CH",
+            "IT"
+        ],
+        "mountain_range": [
+            "alps"
+        ],
+        "group": "Umbrailpass"
+    },
+    {
+        "id": 17869578,
+        "name": "Berninapass from Pontresina",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ],
+        "group": "Berninapass"
+    },
+    {
+        "id": 21027278,
+        "name": "Nufenenpass from Airolo",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ],
+        "group": "Nufenenpass"
+    },
+    {
+        "id": 2319277,
+        "name": "Flüelapass from Davos",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ],
+        "group": "Flüelapass"
+    },
+    {
+        "id": 12225121,
+        "name": "Klausenpass West",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ],
+        "group": "Klausenpass"
+    },
+    {
+        "id": 10252652,
+        "name": "Ofenpass from Zernez",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ],
+        "group": "Ofenpass"
+    },
+    {
+        "id": 1705926,
+        "name": "San Bernardino from Hinterrhein",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ],
+        "group": "San_Bernardino"
+    }
+]

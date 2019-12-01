@@ -72,7 +72,10 @@ function setupMap() {
     controlElevation = L.control.elevation(
         {
             elevationDiv: "#elevation-div",
-            useLeafletMarker: false
+            useLeafletMarker: false,
+            followMarker: false,
+            reverseCoords: true,
+            theme: "lime-theme"
         }
     );
     controlElevation.initCustom(map);

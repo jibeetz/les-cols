@@ -1,4 +1,4 @@
-# Cols alpins
+# Les cols
 
 https://jibeetz.github.io/cols-alpins/
 
@@ -12,7 +12,7 @@ Visit `http://127.0.0.1:1111/`
 
 ## To do
 
-- Add some details in list
+- Add details in list
 - Setup Groups of roads in list
 - Prepare details panel
 - Click on tooltip triggers details

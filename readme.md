@@ -1,6 +1,6 @@
 # Les cols
 
-http://les-cols.tarabucetta.com/
+https://les-cols.tarabucetta.com/
 
 ## Run locally
 

@@ -1,6 +1,6 @@
 # Les cols
 
-https://jibeetz.github.io/cols-alpins/
+http://les-cols.tarabucetta.com/
 
 ## Run locally
 

@@ -1,19 +1,15 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-var OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const Dotenv = require('dotenv-webpack')
 
 const dev = process.env.NODE_ENV === 'dev'
 const modeEnv = (dev) ? 'development' : 'production'
 
-const ifdefOpts = {
-  ENV: modeEnv,
-  "ifdef-verbose": true
-}
-
 let config = {
   mode: modeEnv,
-  entry: ['./src/scss/style.scss', './src/js/main.js'],
+  entry: ['./src/scss/style.scss', './src/js/main.ts'],
   watch: dev,
   devServer: {
     contentBase: path.join(__dirname, 'app/public'),
@@ -28,19 +24,18 @@ let config = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.ts$/,
         use: [
-          { loader: "ts-loader" },
-          { loader: "ifdef-loader", options: ifdefOpts }
+          { loader: "babel-loader" },
+          { loader: "ts-loader" }
        ],
         exclude: /node_modules/
       },
       {
         test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /node_modules/,
         use: [
-          { loader: "babel-loader" },
-          { loader: "ifdef-loader", options: ifdefOpts }
+          { loader: "babel-loader" }
        ]
       },
       {
@@ -96,6 +91,9 @@ let config = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'css/style.css'
+    }),
+    new Dotenv({
+      path: `./app/config/.env.${modeEnv === "production" ? "prod" : "dev"}`
     })
   ]
 };

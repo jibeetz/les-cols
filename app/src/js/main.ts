@@ -1,16 +1,24 @@
 import * as L from 'leaflet'
-import * as LeafletElevation from './leaflet-elevation'
+import elevationModule from './leaflet-elevation'
 import * as PolylineEncoded from 'polyline-encoded'
 
-/// #if ENV == 'production'
-import config from '../../config/config.prod.json'
-/// #elif ENV == 'development'
-import config from '../../config/config.local.json'
-/// #endif
+PolylineEncoded
 
-const mapBoxUrl = 'https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token=' + config.token;
-const mapInitCoordinates = [47.02167640440166, 8.653083890676498];
+declare module 'leaflet' {
+    namespace control {
+        function elevation(options?: any): any
+    }
 
+    namespace Polyline {
+        function fromEncoded(options?: any): any;
+    }
+}
+
+const token = process.env.TOKEN;
+L.control.elevation = elevationModule
+
+const mapBoxUrl = 'https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token=' + token;
+const mapInitCoordinates: any = [47.02167640440166, 8.653083890676498];
 
 const startIcon = L.divIcon({ className: 'start_icon' });
 const finishIcon = L.divIcon({ className: 'finish_icon' });
@@ -40,16 +48,16 @@ const colsList = document.getElementById('list');
 const toggleListTrigger = document.getElementById('toggle_list_trigger');
 const search_input = document.getElementById('search_input');
 
-let cols = {};
-let map = {};
-let selectedCol;
-let isSelectedCol = false;
-let hoveredCol;
-let colsL = [];
-let controlElevation;
+let cols: any = [];
+let map: any = {};
+let selectedCol: any;
+let isSelectedCol: boolean = false;
+let hoveredCol: any;
+let colsL: any = [];
+let controlElevation: any;
 
 function generateMiddleLatLng() {
-    cols = cols.map((col) => {
+    cols = cols.map((col: any) => {
 
         let midLat = (col.start_latlng[0] + col.end_latlng[0]) / 2;
         let midLng = (col.start_latlng[1] + col.end_latlng[1]) / 2;
@@ -60,7 +68,7 @@ function generateMiddleLatLng() {
     });
 }
 
-function setColOpacity(col, opacityLevel) {
+function setColOpacity(col: any, opacityLevel: any) {
     col.setStyle({
         opacity: opacityLevel
     });
@@ -93,10 +101,11 @@ function setupMap() {
 
 }
 
-function applyPathsOnMap(col) {
+function applyPathsOnMap(col: any) {
+
     let coordinates = L.Polyline.fromEncoded(col.encoded).getLatLngs();
 
-    let colPolyline = L.polyline(
+    let colPolyline: any = L.polyline(
         coordinates,
         {
             color: colNormalColor,
@@ -122,7 +131,7 @@ function applyPathsOnMap(col) {
     colsL.push(colPolyline);
 }
 
-function addColsToList(col) {
+function addColsToList(col: any) {
 
     let colsListItem = '<li>';
     colsListItem += '<a href="#' + col.name.replace(/ /g, '_').toLowerCase() + '" ';
@@ -138,7 +147,7 @@ function addColsToList(col) {
 }
 
 function addEventsOnList() {
-    Array.from(list_items).forEach(function (list_item) {
+    Array.from(list_items).forEach(function (list_item: any) {
         list_item.addEventListener('click', zoomTo);
         list_item.addEventListener('mouseenter', mouseenterCol);
         list_item.addEventListener('mouseleave', mouseleaveCol);
@@ -166,7 +175,7 @@ const generateApp = async () => {
 }
 
 function addEventToInfos() {
-    toggle_list_trigger.addEventListener('click', function () {
+    toggleListTrigger.addEventListener('click', function () {
         infos.classList.toggle('hidden');
     });
 }
@@ -177,9 +186,9 @@ function removeSelectedState() {
     });
 }
 
-function passHover(col, color) {
+function passHover(col: any, color: any) {
     let colName = col.getAttribute('data-name');
-    hoveredCol = colsL.find((colL) => colL.name === colName);
+    hoveredCol = colsL.find((colL: any) => colL.name === colName);
     hoveredCol.setStyle({
         color: color,
         opacity: 1
@@ -194,15 +203,15 @@ function mouseleaveCol() {
     passHover(this, colNormalColor);
 }
 
-function getRandomArbitrary(min, max) {
+function getRandomArbitrary(min: any, max: any) {
     return Math.random() * (max - min) + min;
 }
 
-function zoomTo(e, l) {
+function zoomTo(e: any, l: any) {
     let colLat = this.getAttribute('data-lat');
     let colLong = this.getAttribute('data-long');
     let colName = this.getAttribute('data-name');
-    selectedCol = colsL.find((colL) => colL.name === colName);
+    selectedCol = colsL.find((colL: any) => colL.name === colName);
 
     removeSelectedState();
 
@@ -210,7 +219,7 @@ function zoomTo(e, l) {
 
     isSelectedCol = false;
 
-    setView(colLat, colLong, colName);
+    setView(colLat, colLong);
     selectedCol.openPopup();
 
     let fileName = selectedCol.name.toLowerCase().replace(/ /g, "_").replace(/ü/g, "u").replace(/\./g, "");
@@ -218,7 +227,7 @@ function zoomTo(e, l) {
         return res.json();
     }).then(function (data) {
 
-        let obj = {
+        let obj: any = {
             "name": "demo.geojson",
             "type": "FeatureCollection",
             "features": [
@@ -236,12 +245,12 @@ function zoomTo(e, l) {
     });
 }
 
-function setView(lat, lng) {
+function setView(lat: any, lng: any) {
     map.setView(new L.LatLng(lat, lng), 12, { animate: true });
 }
 
 function addEventToMap() {
-    map.on('moveend click', function (e) {
+    map.on('moveend click', function (e: any) {
 
         if (isSelectedCol) {
             console.log('drag zoom');
@@ -271,10 +280,13 @@ function addEventToMap() {
 }
 
 function setupSearch() {
-    search_input.addEventListener('keyup', function (e) {
+    search_input.addEventListener('keyup', function (e: any) {
 
-        let searchText = this.value.toLowerCase();
-        let results = cols.filter(object => {
+        const inputElement: HTMLInputElement = this as HTMLInputElement
+        const inputValue: string = inputElement.value
+
+        let searchText = inputValue.toLowerCase();
+        let results = cols.filter((object: any) => {
 
             let isResultsName = object.name.toLowerCase().indexOf(searchText) !== -1;
 
@@ -282,13 +294,13 @@ function setupSearch() {
 
         });
 
-        Array.from(list_items).forEach(function (list_item) {
+        Array.from(list_items).forEach(function (list_item: any) {
 
-            let list_items_results = results.find(r => {
+            let list_items_results: any = results.find((r: any) => {
                 return r.name === list_item.getAttribute("data-name");
             })
 
-            let updateListItem = (list_items_results) ? 'remove' : 'add';
+            let updateListItem: string = (list_items_results) ? 'remove' : 'add';
             list_item.parentElement.classList[updateListItem]('hidden');
         });
     });

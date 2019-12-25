@@ -1,14 +1,14 @@
 const fetch = require("node-fetch");
 const fs = require("fs");
 const util = require("util");
-const cols = require('./../utils/cols_src');
-const destCols = require('./../app/data/cols.json');
+const colsList = require('./../utils/cols_src');
+const addedCols = require('./../app/data/cols.json');
 const config = require('./config');
 
 const writeFile = util.promisify(fs.writeFile);
 const stat = util.promisify(fs.stat);
 
-const isOnlyElevation = true;
+const isDebug = true;
 
 const headers = {
     method: 'get',
@@ -17,22 +17,22 @@ const headers = {
     }
 }
 
-async function generateCols(cols) {
+async function generateCols(colsList) {
 
-    let colsList = [];
+    let colsToAdd = [];
 
-    for (const col of cols) {
+    for (const col of colsList) {
 
-        let destCol = destCols.find(c => c.name === col.name)
+        let addedCol = addedCols.find(c => c.name === col.name)
         console.log('-----------------');
         console.log('col.id', col.id);
-        console.log('typeof destCol', typeof destCol === 'undefined');
+        console.log('typeof addedCol', typeof addedCol === 'undefined');
 
-        if (typeof col.id !== 'undefined' && typeof destCol === 'undefined') {
+        if (typeof col.id !== 'undefined' && typeof addedCol === 'undefined') {
 
             console.log('colID', col.id);
 
-            if (!isOnlyElevation) {
+            if (!isDebug) {
 
                 let colData = await fetch(config.url + col.id, headers)
                     .then(async (response) => {
@@ -56,7 +56,7 @@ async function generateCols(cols) {
 
                 delete col.id
 
-                colsList.push(col)
+                colsToAdd.push(col)
             }
         }
 
@@ -93,16 +93,16 @@ async function generateCols(cols) {
         }
     }
 
-    if (!isOnlyElevation) {
-        console.log('colsList length', colsList.length);
+    if (!isDebug) {
+        console.log('colsToAdd length', colsToAdd.length);
 
-        if (colsList.length !== 0) {
+        if (colsToAdd.length !== 0) {
 
-            colsList = [...destCols, ...colsList]
+            colsToAdd = [...addedCols, ...colsToAdd]
 
-            await writeFile('app/data/cols.json', JSON.stringify(colsList));
+            await writeFile('app/data/cols.json', JSON.stringify(colsToAdd));
         }
     }
 }
 
-generateCols(cols);
+generateCols(colsList);

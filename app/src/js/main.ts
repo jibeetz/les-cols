@@ -6,11 +6,21 @@ PolylineEncoded
 
 declare module 'leaflet' {
     namespace control {
-        function elevation(options?: any): any
+        function elevation(options?: any): void
     }
 
     namespace Polyline {
-        function fromEncoded(options?: any): any;
+        function fromEncoded(encoded: string, options?: any): L.Polyline;
+    }
+
+    export interface Polyline {
+        name: string
+        startMarker: L.Marker
+        finishMarker: L.Marker
+        mid_latlng: Array<number>
+        start_latlng: L.LatLngTuple
+        end_latlng: L.LatLngTuple
+        encoded: string
     }
 }
 
@@ -18,7 +28,7 @@ const token = process.env.TOKEN;
 L.control.elevation = elevationModule
 
 const mapBoxUrl = 'https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token=' + token;
-const mapInitCoordinates: any = [47.02167640440166, 8.653083890676498];
+const mapInitCoordinates: L.LatLngTuple = [47.02167640440166, 8.653083890676498];
 
 const startIcon = L.divIcon({ className: 'start_icon' });
 const finishIcon = L.divIcon({ className: 'finish_icon' });
@@ -48,16 +58,16 @@ const colsList = document.getElementById('list');
 const toggleListTrigger = document.getElementById('toggle_list_trigger');
 const search_input = document.getElementById('search_input');
 
-let cols: any = [];
-let map: any = {};
-let selectedCol: any;
+let cols: Array<L.Polyline> = [];
+let map: L.Map;
+let selectedCol: L.Polyline;
 let isSelectedCol: boolean = false;
-let hoveredCol: any;
-let colsL: any = [];
+let hoveredCol: L.Polyline;
+let colsL: Array<L.Polyline> = [];
 let controlElevation: any;
 
 function generateMiddleLatLng() {
-    cols = cols.map((col: any) => {
+    cols = cols.map((col: L.Polyline) => {
 
         let midLat = (col.start_latlng[0] + col.end_latlng[0]) / 2;
         let midLng = (col.start_latlng[1] + col.end_latlng[1]) / 2;
@@ -68,7 +78,7 @@ function generateMiddleLatLng() {
     });
 }
 
-function setColOpacity(col: any, opacityLevel: any) {
+function setColOpacity(col: L.Polyline, opacityLevel: number) {
     col.setStyle({
         opacity: opacityLevel
     });
@@ -101,11 +111,11 @@ function setupMap() {
 
 }
 
-function applyPathsOnMap(col: any) {
+function applyPathsOnMap(col: L.Polyline) {
 
-    let coordinates = L.Polyline.fromEncoded(col.encoded).getLatLngs();
+    let coordinates: any = L.Polyline.fromEncoded(col.encoded).getLatLngs();
 
-    let colPolyline: any = L.polyline(
+    let colPolyline: L.Polyline = L.polyline(
         coordinates,
         {
             color: colNormalColor,
@@ -131,7 +141,7 @@ function applyPathsOnMap(col: any) {
     colsL.push(colPolyline);
 }
 
-function addColsToList(col: any) {
+function addColsToList(col: L.Polyline) {
 
     let colsListItem = '<li>';
     colsListItem += '<a href="#' + col.name.replace(/ /g, '_').toLowerCase() + '" ';
@@ -147,7 +157,7 @@ function addColsToList(col: any) {
 }
 
 function addEventsOnList() {
-    Array.from(list_items).forEach(function (list_item: any) {
+    Array.from(list_items).forEach(function (list_item: HTMLElement) {
         list_item.addEventListener('click', zoomTo);
         list_item.addEventListener('mouseenter', mouseenterCol);
         list_item.addEventListener('mouseleave', mouseleaveCol);
@@ -186,9 +196,10 @@ function removeSelectedState() {
     });
 }
 
-function passHover(col: any, color: any) {
+function passHover(col: Element, color: string) {
+
     let colName = col.getAttribute('data-name');
-    hoveredCol = colsL.find((colL: any) => colL.name === colName);
+    hoveredCol = colsL.find((colL: L.Polyline) => colL.name === colName);
     hoveredCol.setStyle({
         color: color,
         opacity: 1
@@ -203,16 +214,29 @@ function mouseleaveCol() {
     passHover(this, colNormalColor);
 }
 
-function getRandomArbitrary(min: any, max: any) {
+function getRandomArbitrary(min: number, max: number) {
     return Math.random() * (max - min) + min;
 }
 
-function zoomTo(e: any, l: any) {
+interface Obj {
+    "name": string,
+    "type": string,
+    "features": [
+        {
+            "type": string,
+            "geometry": {
+                "type": string,
+                "coordinates": string[]
+            },
+            "properties": null
+        }]
+}
+
+function zoomTo() {
     let colLat = this.getAttribute('data-lat');
     let colLong = this.getAttribute('data-long');
     let colName = this.getAttribute('data-name');
-    selectedCol = colsL.find((colL: any) => colL.name === colName);
-
+    selectedCol = colsL.find((colL: L.Polyline) => colL.name === colName);
     removeSelectedState();
 
     this.parentElement.classList.add(selectedListItemClass);
@@ -227,7 +251,7 @@ function zoomTo(e: any, l: any) {
         return res.json();
     }).then(function (data) {
 
-        let obj: any = {
+        let obj: Obj = {
             "name": "demo.geojson",
             "type": "FeatureCollection",
             "features": [
@@ -245,15 +269,14 @@ function zoomTo(e: any, l: any) {
     });
 }
 
-function setView(lat: any, lng: any) {
+function setView(lat: number, lng: number) {
     map.setView(new L.LatLng(lat, lng), 12, { animate: true });
 }
 
 function addEventToMap() {
-    map.on('moveend click', function (e: any) {
+    map.on('moveend click', function () {
 
         if (isSelectedCol) {
-            console.log('drag zoom');
             for (var colL of colsL) {
                 setColOpacity(colL, 1);
             }
@@ -280,28 +303,29 @@ function addEventToMap() {
 }
 
 function setupSearch() {
-    search_input.addEventListener('keyup', function (e: any) {
+    search_input.addEventListener('keyup', function () {
 
         const inputElement: HTMLInputElement = this as HTMLInputElement
         const inputValue: string = inputElement.value
 
-        let searchText = inputValue.toLowerCase();
-        let results = cols.filter((object: any) => {
-
-            let isResultsName = object.name.toLowerCase().indexOf(searchText) !== -1;
-
-            return isResultsName;
-
+        let searchText: string = inputValue.toLowerCase();
+        let results: Array<any> = cols.filter((object: L.Polyline) => {
+            return object.name.toLowerCase().indexOf(searchText) !== -1;
         });
 
-        Array.from(list_items).forEach(function (list_item: any) {
+        Array.from(list_items).forEach(function (list_item: Element) {
 
-            let list_items_results: any = results.find((r: any) => {
+            let list_items_results: Array<L.Polyline> = results.find((r: L.Polyline) => {
                 return r.name === list_item.getAttribute("data-name");
             })
 
-            let updateListItem: string = (list_items_results) ? 'remove' : 'add';
-            list_item.parentElement.classList[updateListItem]('hidden');
+            if (list_items_results) {
+                list_item.parentElement.classList.remove('hidden');
+            }
+
+            if (!list_items_results) {
+                list_item.parentElement.classList.add('hidden');
+            }
         });
     });
 }

@@ -6,6 +6,11 @@ var OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const dev = process.env.NODE_ENV === 'dev'
 const modeEnv = (dev) ? 'development' : 'production'
 
+const ifdefOpts = {
+  ENV: modeEnv,
+  "ifdef-verbose": true
+}
+
 let config = {
   mode: modeEnv,
   entry: ['./src/scss/style.scss', './src/js/main.js'],
@@ -24,13 +29,19 @@ let config = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        use: [
+          { loader: "ts-loader" },
+          { loader: "ifdef-loader", options: ifdefOpts }
+       ],
         exclude: /node_modules/
       },
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
-        use: ['babel-loader']
+        use: [
+          { loader: "babel-loader" },
+          { loader: "ifdef-loader", options: ifdefOpts }
+       ]
       },
       {
         test: /\.scss$/,

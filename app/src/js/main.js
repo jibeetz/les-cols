@@ -2,10 +2,15 @@ import * as L from 'leaflet'
 import * as LeafletElevation from './leaflet-elevation'
 import * as PolylineEncoded from 'polyline-encoded'
 
+/// #if ENV == 'production'
+import config from '../../config/config.prod.json'
+/// #elif ENV == 'development'
+import config from '../../config/config.local.json'
+/// #endif
+
 const mapBoxUrl = 'https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token=' + config.token;
 const mapInitCoordinates = [47.02167640440166, 8.653083890676498];
 
-console.log('test');
 
 const startIcon = L.divIcon({ className: 'start_icon' });
 const finishIcon = L.divIcon({ className: 'finish_icon' });

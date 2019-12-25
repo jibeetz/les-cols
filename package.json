@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "NODE_ENV=dev webpack-dev-server",
     "prod": "webpack",
-    "start": "http-server app/ -a 0.0.0.0 -p 1111 -o"
+    "start": "http-server app/public/ -a 0.0.0.0 -p 1111 -o"
   },
   "version": "1.0.0",
   "devDependencies": {
@@ -36,6 +36,7 @@
     "@babel/runtime": "^7.7.7",
     "@types/leaflet": "^1.5.7",
     "d3": "^5.14.2",
+    "ifdef-loader": "^2.1.4",
     "leaflet": "^1.6.0",
     "node-fetch": "^2.6.0",
     "polyline-encoded": "0.0.8"

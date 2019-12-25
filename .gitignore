@@ -1,4 +1,4 @@
 node_modules/
 package-lock.json
-config.local.json
+app/config/config.local.json
 utils/config.json

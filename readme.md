@@ -1,10 +1,12 @@
 # Les cols
 
-https://les-cols.tarabucetta.com/
+https://les-cols.tarabucetta.com
 
 ## Run locally
 
 `npm install`
+
+`npm run dev`
 
 `npm start`
 

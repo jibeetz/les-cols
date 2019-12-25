@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "outDir": "././app/public/",
+        "noImplicitAny": true,
+        "noImplicitUseStrict": true,
+        "module": "es6",
+        "target": "es5",
+        "allowJs": true,
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "allowSyntheticDefaultImports": true
+    }
+}

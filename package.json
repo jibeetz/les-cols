@@ -1,16 +1,43 @@
 {
-  "description": "",
+  "description": "Les cols",
   "keywords": [],
   "license": "ISC",
-  "name": "alpine-paesse",
+  "name": "les-cols",
   "scripts": {
+    "dev": "NODE_ENV=dev webpack-dev-server",
+    "prod": "webpack",
     "start": "http-server app/ -a 0.0.0.0 -p 1111 -o"
   },
   "version": "1.0.0",
   "devDependencies": {
-    "http-server": "~0.8.0"
+    "@babel/core": "^7.7.7",
+    "@babel/plugin-transform-runtime": "^7.7.6",
+    "@babel/preset-env": "^7.7.7",
+    "babel-loader": "^8.0.6",
+    "babel-polyfill": "^6.26.0",
+    "css-loader": "^3.4.0",
+    "file-loader": "^5.0.2",
+    "http-server": "~0.8.0",
+    "i": "^0.3.6",
+    "imagemin": "^7.0.1",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "sass-loader": "^8.0.0",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.4",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "url-loader": "^3.0.0",
+    "webpack": "^4.41.4",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1"
   },
   "dependencies": {
-    "node-fetch": "^2.6.0"
+    "@babel/runtime": "^7.7.7",
+    "@types/leaflet": "^1.5.7",
+    "d3": "^5.14.2",
+    "leaflet": "^1.6.0",
+    "node-fetch": "^2.6.0",
+    "polyline-encoded": "0.0.8"
   }
 }

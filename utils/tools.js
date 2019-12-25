@@ -4,6 +4,10 @@ const util = require("util");
 const colsList = require('./../utils/cols_src');
 const addedCols = require('./../app/data/cols.json');
 const config = require('./config');
+// {
+//     "strv": "key",
+//     "url": "url"
+// }
 
 const writeFile = util.promisify(fs.writeFile);
 const stat = util.promisify(fs.stat);

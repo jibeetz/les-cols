@@ -62,11 +62,7 @@ class LesCols {
     readonly mapStyleSatellite: L.TileLayer
     // https://docs.mapbox.com/api/maps/#styles
 
-    readonly mapStyles: L.Control.LayersObject = {
-        'Outdoors': mapStyleOutdoors,
-        'Streets': mapStyleStreets,
-        'Satellite': mapStyleSatellite
-    }
+    readonly mapStyles: L.Control.LayersObject
 
     readonly mapCredits: string = '<a href="https://github.com/Raruto/leaflet-elevation">Leaflet Elevation</a> | © <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>'
 
@@ -98,6 +94,12 @@ class LesCols {
         this.mapStyleStreets = this.L.tileLayer(this.mapBoxAPIUrl, { id: 'streets-v11', tileSize: 512, zoomOffset: -1 })
         this.mapStyleOutdoors = this.L.tileLayer(this.mapBoxAPIUrl, { id: 'outdoors-v9', tileSize: 512, zoomOffset: -1 })
         this.mapStyleSatellite = this.L.tileLayer(this.mapBoxAPIUrl, { id: 'satellite-streets-v11', tileSize: 512, zoomOffset: -1 })
+
+        this.mapStyles = {
+            'Outdoors': this.mapStyleOutdoors,
+            'Streets': this.mapStyleStreets,
+            'Satellite': this.mapStyleSatellite
+        }
 
         this.filterColsList = filterColsList
 
@@ -254,7 +256,6 @@ class LesCols {
         e.parentElement.classList.add(this.menuColClassSelected)
 
         this.isSelectedCol = false
-
         this.setView(colLat, colLong)
         this.selectedCol.openPopup()
 
@@ -281,11 +282,10 @@ class LesCols {
     }
 
     addEventToMap() {
-        this.map.on('moveend click', function () {
-
+        this.map.on('moveend click', () => {
             if (this.isSelectedCol) {
                 for (var col of this.cols) {
-                    setColOpacity(col, 1)
+                    this.setColOpacity(col, 1)
                 }
 
                 this.isSelectedCol = false
@@ -295,12 +295,11 @@ class LesCols {
             }
 
             if (typeof this.selectedCol !== 'undefined') {
-
                 for (var col of this.cols) {
                     if (col !== this.selectedCol) {
-                        setColOpacity(col, 0.4)
+                        this.setColOpacity(col, 0.4)
                     } else {
-                        setColOpacity(col, 1)
+                        this.setColOpacity(col, 1)
                     }
                 }
 
@@ -335,267 +334,4 @@ class LesCols {
     }
 }
 
-const mapboxToken = process.env.TOKEN
-L.control.elevation = elevationModule
-
-const mapBoxAPIUrl = 'https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token=' + mapboxToken
-const mapInitCoordinates: L.LatLngTuple = [47.02167640440166, 8.653083890676498]
-
-const mapStartIcon = L.divIcon({ className: 'start_icon' })
-const mapFinishIcon = L.divIcon({ className: 'finish_icon' })
-
-const mapColColorNormal = '#0026af'
-const mapColColorHover = '#008aff'
-const menuColClassSelected = 'selected'
-const markerTitleStart = 'Start'
-const markerTitleFinish = 'Finish'
-
-const mapStyleStreets = L.tileLayer(mapBoxAPIUrl, { id: 'streets-v11', tileSize: 512, zoomOffset: -1 })
-const mapStyleOutdoors = L.tileLayer(mapBoxAPIUrl, { id: 'outdoors-v9', tileSize: 512, zoomOffset: -1 })
-const mapStyleSatellite = L.tileLayer(mapBoxAPIUrl, { id: 'satellite-streets-v11', tileSize: 512, zoomOffset: -1 })
-// https://docs.mapbox.com/api/maps/#styles
-
-const mapStyles = {
-    "Outdoors": mapStyleOutdoors,
-    "Streets": mapStyleStreets,
-    "Satellite": mapStyleSatellite
-}
-
-const mapCredits = '<a href="https://github.com/Raruto/leaflet-elevation">Leaflet Elevation</a> | © <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>'
-
-const menuColsEls = document.getElementsByClassName('menu_col')
-const menuEl = document.getElementById('infos')
-const menuColsListEl = document.getElementById('cols_list')
-const menuToggleTriggerEl = document.getElementById('toggle_list_trigger')
-
-let cols: Array<L.Polyline> = []
-let map: L.Map
-let selectedCol: L.Polyline
-let isSelectedCol: boolean = false
-let hoveredCol: L.Polyline
-let colsL: Array<L.Polyline> = []
-let mapControlElevation: any
-
-function generateMiddleLatLng() {
-    cols = cols.map((col: L.Polyline) => {
-
-        let midLat = (col.start_latlng[0] + col.end_latlng[0]) / 2
-        let midLng = (col.start_latlng[1] + col.end_latlng[1]) / 2
-
-        col.mid_latlng = [midLat, midLng]
-
-        return col
-    })
-}
-
-function setColOpacity(col: L.Polyline, opacityLevel: number) {
-    col.setStyle({
-        opacity: opacityLevel
-    })
-    col.startMarker.setOpacity(opacityLevel)
-    col.finishMarker.setOpacity(opacityLevel)
-}
-
-function setupMap() {
-    map = L.map('map', {
-        attributionControl: false,
-        layers: [mapStyleStreets]
-    }).setView(mapInitCoordinates, 9)
-
-    L.control.layers(mapStyles).addTo(map)
-
-    var mapCreditsAttribution: L.Control.Attribution = L.control.attribution().addTo(map)
-    mapCreditsAttribution.addAttribution(mapCredits)
-    map.zoomControl.setPosition('bottomright')
-
-    mapControlElevation = L.control.elevation(
-        {
-            elevationDiv: "#elevation-div",
-            useLeafletMarker: false,
-            followMarker: false,
-            reverseCoords: true,
-            theme: "lime-theme"
-        }
-    )
-    mapControlElevation.initCustom(map)
-}
-
-function applyPathOnMap(col: L.Polyline) {
-
-    let coordinates: any = L.Polyline.fromEncoded(col.encoded).getLatLngs()
-
-    let colPolyline: L.Polyline = L.polyline(
-        coordinates,
-        {
-            color: mapColColorNormal,
-            weight: 4,
-            opacity: .7,
-            lineJoin: 'round'
-        }
-    ).addTo(map).bindPopup(col.name, { autoPan: false }).on('click', function () { console.log('col', col.name) })
-
-    let startMarker = L.marker([col.start_latlng[0], col.start_latlng[1]], {
-        icon: mapStartIcon,
-        title: markerTitleStart
-    }).addTo(map)
-    let finishMarker = L.marker([col.end_latlng[0], col.end_latlng[1]], {
-        icon: mapFinishIcon,
-        title: markerTitleFinish
-    }).addTo(map)
-
-    colPolyline.name = col.name
-    colPolyline.startMarker = startMarker
-    colPolyline.finishMarker = finishMarker
-
-    colsL.push(colPolyline)
-}
-
-function addColToMenu(col: L.Polyline) {
-
-    let menuCol = '<li>'
-    menuCol += '<a href="#' + col.name.replace(/ /g, '_').toLowerCase() + '" '
-    menuCol += 'class="menu_col" '
-    menuCol += 'data-name="' + col.name + '" '
-    menuCol += 'data-lat="' + col.mid_latlng[0] + '" '
-    menuCol += 'data-long="' + col.mid_latlng[1] + '">'
-    menuCol += col.name
-    menuCol += '</a>'
-    menuCol += '</li>'
-
-    menuColsListEl.innerHTML += menuCol
-}
-
-function addEventsToMenu() {
-    Array.from(menuColsEls).forEach(function (menuColEl: HTMLElement) {
-        menuColEl.addEventListener('click', zoomTo)
-        menuColEl.addEventListener('mouseenter', mouseenterCol)
-        menuColEl.addEventListener('mouseleave', mouseleaveCol)
-    })
-}
-
-const generateApp = async () => {
-
-    PolylineEncoded
-
-    const response = await fetch('data/cols.json')
-    cols = await response.json()
-
-    generateMiddleLatLng()
-
-    setupMap()
-
-    for (let col of cols) {
-        addColToMenu(col)
-        applyPathOnMap(col)
-    }
-
-    addEventToMap()
-    addEventsToMenu()
-    addToggleEventToMenu()
-    filterColsList(cols, menuColsEls)
-}
-
-function addToggleEventToMenu() {
-    menuToggleTriggerEl.addEventListener('click', function () {
-        menuEl.classList.toggle('hidden')
-    })
-}
-
-function removeSelectedState() {
-    Array.from(menuColsEls).forEach(function (menuColEl) {
-        menuColEl.parentElement.classList.remove(menuColClassSelected)
-    })
-}
-
-function passHover(col: Element, color: string) {
-
-    let colName = col.getAttribute('data-name')
-    hoveredCol = colsL.find((colL: L.Polyline) => colL.name === colName)
-    console.log('hoveredCol', hoveredCol)
-    hoveredCol.setStyle({
-        color: color,
-        opacity: 1
-    })
-}
-
-function mouseenterCol() {
-    passHover(this, mapColColorHover)
-}
-
-function mouseleaveCol() {
-    passHover(this, mapColColorNormal)
-}
-
-function zoomTo() {
-    let colLat = this.getAttribute('data-lat')
-    let colLong = this.getAttribute('data-long')
-    let colName = this.getAttribute('data-name')
-    selectedCol = colsL.find((colL: L.Polyline) => colL.name === colName)
-    removeSelectedState()
-
-    this.parentElement.classList.add(menuColClassSelected)
-
-    isSelectedCol = false
-
-    setView(colLat, colLong)
-    selectedCol.openPopup()
-
-    let fileName = selectedCol.name.toLowerCase().replace(/ /g, "_").replace(/ü/g, "u").replace(/\./g, "")
-    fetch('data/coords/' + fileName + '.json').then(function (res) {
-        return res.json()
-    }).then(function (data) {
-
-        let obj: ElevationObj = {
-            "name": "demo.geojson",
-            "type": "FeatureCollection",
-            "features": [
-                {
-                    "type": "Feature",
-                    "geometry": {
-                        "type": "LineString",
-                        "coordinates": data
-                    },
-                    "properties": null
-                }]
-        }
-
-        mapControlElevation.loadDataCustom(obj, map)
-    })
-}
-
-function setView(lat: number, lng: number) {
-    map.setView(new L.LatLng(lat, lng), 12, { animate: true })
-}
-
-function addEventToMap() {
-    map.on('moveend click', function () {
-
-        if (isSelectedCol) {
-            for (var colL of colsL) {
-                setColOpacity(colL, 1)
-            }
-
-            isSelectedCol = false
-            selectedCol = undefined
-
-            removeSelectedState()
-        }
-
-        if (typeof selectedCol !== 'undefined') {
-
-            for (var colL of colsL) {
-                if (colL !== selectedCol) {
-                    setColOpacity(colL, 0.4)
-                } else {
-                    setColOpacity(colL, 1)
-                }
-            }
-
-            isSelectedCol = true
-        }
-    })
-}
-
-// generateApp()
-
-let lesCols: LesCols = new LesCols(process.env.TOKEN, L, elevationModule, PolylineEncoded, filterColsList)
+new LesCols(process.env.TOKEN, L, elevationModule, PolylineEncoded, filterColsList)

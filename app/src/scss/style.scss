@@ -1,8 +1,10 @@
-@import 'leaflet.css';
+@import "leaflet.css";
+@import "main";
+@import "menu";
 
 .leaflet-control.elevation {
   position: absolute;
-	bottom: 0;
+  bottom: 0;
   right: 0;
 }
 
@@ -18,13 +20,13 @@
 
 .leaflet-control.elevation .axis line,
 .leaflet-control.elevation .axis path {
-  stroke: #2D1130;
+  stroke: #2d1130;
   stroke-width: 2;
   fill: none;
 }
 
 .leaflet-control.elevation .grid .tick line {
-  stroke: #EEE;
+  stroke: #eee;
   stroke-width: 1px;
   shape-rendering: crispEdges;
 }
@@ -41,14 +43,14 @@
 }
 
 .leaflet-control.elevation .area {
-  fill: #4682B4;
+  fill: #4682b4;
   stroke: #000;
   stroke-width: 1.8;
   paint-order: stroke fill;
 }
 
 .leaflet-control.elevation .mouse-focus-line {
-  stroke: #0D1821;
+  stroke: #0d1821;
   stroke-width: 1;
   pointer-events: none;
 }
@@ -60,7 +62,7 @@
 }
 
 .leaflet-control.elevation .mouse-focus-label-text {
-  fill: #FFF;
+  fill: #fff;
   pointer-events: none;
 }
 
@@ -75,7 +77,7 @@
   border-radius: 5px;
   width: 36px;
   height: 36px;
-  background-color: #F8F8F9;
+  background-color: #f8f8f9;
 }
 
 .leaflet-control.elevation-collapsed .background {
@@ -88,7 +90,7 @@
 
 .leaflet-overlay-pane .height-focus {
   stroke: #000;
-  fill: #FFF;
+  fill: #fff;
 }
 
 .leaflet-overlay-pane .height-focus.line {
@@ -101,10 +103,9 @@
   font-weight: 600;
   fill: #000;
   paint-order: stroke;
-  stroke: #FFF;
+  stroke: #fff;
   stroke-width: 2px;
 }
-
 
 .lime-theme.leaflet-control.elevation .background {
   background-color: rgba(255, 255, 255, 0.8);
@@ -112,11 +113,11 @@
 
 .lime-theme.leaflet-control.elevation .axis line,
 .lime-theme.leaflet-control.elevation .axis path {
-  stroke: #566B13;
+  stroke: #566b13;
 }
 
 .lime-theme.leaflet-control.elevation .grid .tick line {
-  stroke: #CCC;
+  stroke: #ccc;
 }
 
 .lime-theme.leaflet-control.elevation .mouse-drag {
@@ -124,7 +125,7 @@
 }
 
 .lime-theme.leaflet-control.elevation .area {
-  fill: #9CC222;
+  fill: #9cc222;
 }
 
 .lime-theme.leaflet-control.elevation .mouse-focus-line {
@@ -133,142 +134,68 @@
 
 .lime-theme.height-focus {
   stroke: #000;
-  fill: #9CC222;
+  fill: #9cc222;
 }
 
 .lime-theme.elevation-polyline {
-  stroke: #566B13;
+  stroke: #566b13;
 }
 
-* {
-    box-sizing: border-box;
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  border-radius: 2px;
+  background: #fffc;
+  border: 1px solid #0007ff;
+  border-radius: 2px;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
-    font-size: 14px;
-}
-
-#infos {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-	width: 250px;
-    background-color: #fbfbfb;
-    transition: transform 0.2s;
-}
-
-#infos.hidden {
-    transform: translate3d(-250px, 0, 0);
-}
-
-#infos_wrapper {
-    height: calc(100vh - 57px);
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-}
-
-#search {
-    padding: 15px;
-}
-
-#search input {
-    width: 100%;
-	padding: 7px 10px;
-	border: none;
-}
-
-#toggle_list_trigger {
-    position: absolute;
-	right: -44px;
-	width: 44px;
-	height: 44px;
-	background: #fbfbfb;
-	border: none;
-}
-
-#list {
-    margin: 0;
-    padding: 0 0 15px;
-}
-
-#list li {
-    list-style: none;
-    padding: 0;
-    transition: opacity 0.3s;
-}
-
-#list li.hidden {
-    opacity: 0.2;
-}
-
-#list li a{
-    list-style: none;
-    padding: 5px 15px;
-    display: block;
-    text-decoration: none;
-    color: #0026af;
-}
-
-#list li a:hover, #list li.selected a{
-    background-color: #eaeaea;
-}
-
-.leaflet-popup-content-wrapper, .leaflet-popup-tip {
-    border-radius: 2px;
-    background: #fffc;
-    border: 1px solid #0007ff;
-    border-radius: 2px;
-}
-
-.leaflet-popup-tip-container, .leaflet-popup-close-button {
-    display: none;
+.leaflet-popup-tip-container,
+.leaflet-popup-close-button {
+  display: none;
 }
 
 .leaflet-popup-content {
-	margin: 10px;
+  margin: 10px;
 }
 
-.start_icon, .finish_icon {
-    width: 16px;
-    height: 16px;
-	border-width: 2px;
-	border-style: solid;
-	border-radius: 50%;
+.start_icon,
+.finish_icon {
+  width: 16px;
+  height: 16px;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 50%;
 }
 
 .start_icon {
-    background-color: #3abd3a;
-	border-color: #0b5a0b;
+  background-color: #3abd3a;
+  border-color: #0b5a0b;
 }
 
 .finish_icon {
-    background-color: white;
-    border-color: black;
+  background-color: white;
+  border-color: black;
 }
 
 .leaflet-interactive {
-	transition: 0.3s;
+  transition: 0.3s;
 }
 
 #elevation-div {
-    width: 100%;
-    padding: 0px;
-    margin: 0px;
-    height: 25%;
-    font: 12px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  height: 25%;
+  font: 12px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
 .data-summary {
-    font-size: 12px;
-    position: absolute;
-    bottom: 0;
-    left: 45px;
-  }
+  font-size: 12px;
+  position: absolute;
+  bottom: 0;
+  left: 45px;
+}
 
-  .data-summary .summaryvalue {
-    font-weight: bold;
-  }
+.data-summary .summaryvalue {
+  font-weight: bold;
+}

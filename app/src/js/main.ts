@@ -48,8 +48,8 @@ class LesCols {
     readonly mapBoxAPIUrl: string = 'https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token='
     readonly mapInitCoordinates: L.LatLngTuple = [47.02167640440166, 8.653083890676498]
 
-    readonly mapStartIcon: L.DivIcon
-    readonly mapFinishIcon: L.DivIcon
+    readonly mapIconStart: L.DivIcon
+    readonly mapIconFinish: L.DivIcon
 
     readonly mapColColorNormal: string = '#0026af'
     readonly mapColColorHover: string = '#008aff'
@@ -88,8 +88,8 @@ class LesCols {
         this.mapBoxAPIUrl = this.mapBoxAPIUrl + this.mapboxToken
 
         this.L.control.elevation = this.elevationModule
-        this.mapStartIcon = this.L.divIcon({ className: 'start_icon' })
-        this.mapFinishIcon = this.L.divIcon({ className: 'finish_icon' })
+        this.mapIconStart = this.L.divIcon({ className: 'start_icon' })
+        this.mapIconFinish = this.L.divIcon({ className: 'finish_icon' })
 
         this.mapStyleStreets = this.L.tileLayer(this.mapBoxAPIUrl, { id: 'streets-v11', tileSize: 512, zoomOffset: -1 })
         this.mapStyleOutdoors = this.L.tileLayer(this.mapBoxAPIUrl, { id: 'outdoors-v9', tileSize: 512, zoomOffset: -1 })
@@ -104,10 +104,10 @@ class LesCols {
         this.filterColsList = filterColsList
 
         this.generateApp()
-
     }
 
     generateMiddleLatLng(): Array<L.Polyline> {
+
         return this.cols.map((col: L.Polyline) => {
 
             let midLat = (col.start_latlng[0] + col.end_latlng[0]) / 2
@@ -120,6 +120,7 @@ class LesCols {
     }
 
     setColOpacity(col: L.Polyline, opacityLevel: number): void {
+
         col.setStyle({
             opacity: opacityLevel
         })
@@ -167,12 +168,12 @@ class LesCols {
         ).addTo(this.map).bindPopup(col.name, { autoPan: false }).on('click', function () { console.log('col', col.name) })
 
         let startMarker: L.Marker<any> = L.marker([col.start_latlng[0], col.start_latlng[1]], {
-            icon: this.mapStartIcon,
+            icon: this.mapIconStart,
             title: this.markerTitleStart
         }).addTo(this.map)
 
         let finishMarker: L.Marker<any> = L.marker([col.end_latlng[0], col.end_latlng[1]], {
-            icon: this.mapFinishIcon,
+            icon: this.mapIconFinish,
             title: this.markerTitleFinish
         }).addTo(this.map)
 
@@ -186,6 +187,7 @@ class LesCols {
     }
 
     addColToMenu(col: L.Polyline): void {
+
         let menuCol: string = '<li>'
         menuCol += '<a href="#' + col.name.replace(/ /g, '_').toLowerCase() + '" '
         menuCol += 'class="menu_col" '
@@ -215,21 +217,20 @@ class LesCols {
                 self.passHover(this, self.mapColColorNormal)
             })
         })
-
     }
 
     passHover(colEl: Element, color: string) {
 
         let colName = colEl.getAttribute('data-name')
-        let hoveredCol = this.cols.find((col: L.Polyline) => col.name === colName)
-        hoveredCol.setStyle({
+        this.hoveredCol = this.cols.find((col: L.Polyline) => col.name === colName)
+        this.hoveredCol.setStyle({
             color: color,
             opacity: 1
         })
-
     }
 
     removeSelectedState() {
+
         let self = this
         Array.from(this.menuColsEls).forEach(function (menuColEl) {
             menuColEl.parentElement.classList.remove(self.menuColClassSelected)
@@ -237,6 +238,7 @@ class LesCols {
     }
 
     addToggleEventToMenu() {
+
         this.menuToggleTriggerEl.addEventListener('click', () => {
             this.menuEl.classList.toggle('hidden')
         })
@@ -247,6 +249,7 @@ class LesCols {
     }
 
     zoomTo(e: HTMLElement) {
+
         let colLat: number = parseFloat(e.getAttribute('data-lat'))
         let colLong: number = parseFloat(e.getAttribute('data-long'))
         let colName: string = e.getAttribute('data-name')
@@ -263,6 +266,7 @@ class LesCols {
         fetch('data/coords/' + fileName + '.json').then((res) => {
             return res.json()
         }).then((data) => {
+
             let obj: ElevationObj = {
                 "name": "demo.geojson",
                 "type": "FeatureCollection",
@@ -279,10 +283,13 @@ class LesCols {
 
             this.mapControlElevation.loadDataCustom(obj, this.map)
         })
+
     }
 
     addEventToMap() {
+
         this.map.on('moveend click', () => {
+
             if (this.isSelectedCol) {
                 for (var col of this.cols) {
                     this.setColOpacity(col, 1)
@@ -305,7 +312,9 @@ class LesCols {
 
                 this.isSelectedCol = true
             }
+
         })
+
     }
 
     generateApp = async () => {

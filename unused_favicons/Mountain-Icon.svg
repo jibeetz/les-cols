@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.0"
+   width="128"
+   height="128"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="Mountain.svg">
+  <path
+       sodipodi:nodetypes="#1a5686"
+       id="path2207"
+       d="M 28.073395,127.98257 C 78.022128,64.664115 78.025883,64.670794 78.025883,64.670794 L 128,128 28.073395,127.98257 z"
+       style="fill:#1a5686;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#3188cc;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       d="M 5.7424614,128.21583 C 43.608387,75.945856 43.611234,75.951368 43.611234,75.951368 L 81.4964,128.23022 5.7424614,128.21588 z"
+       id="path2995"
+       sodipodi:nodetypes="cccc"
+       inkscape:connector-curvature="0" />
+</svg>

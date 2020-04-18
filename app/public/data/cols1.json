@@ -1,0 +1,41 @@
+[
+    {
+        "name": "Ibergeregg West",
+        "file": "Ibergeregg",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ],
+        "climb_category": 5,
+        "start_latlng": [
+            47.02167640440166,
+            8.653083890676498
+        ],
+        "end_latlng": [
+            47.01741278171539,
+            8.733295351266861
+        ]
+    },
+    {
+        "name": "Pragelpass from Muotathal",
+        "file": "Le_Tour_de_Rigi",
+        "countries": [
+            "CH"
+        ],
+        "mountain_range": [
+            "alps"
+        ],
+        "group": "Pragelpass",
+        "climb_category": 5,
+        "start_latlng": [
+            46.974018,
+            8.775453
+        ],
+        "end_latlng": [
+            46.997358,
+            8.869967
+        ]
+    }
+]

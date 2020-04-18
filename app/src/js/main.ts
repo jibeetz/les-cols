@@ -1,15 +1,11 @@
 import * as L from 'leaflet'
 import elevationModule from './leaflet-elevation'
-import * as PolylineEncoded from 'polyline-encoded'
 import { filterColsList } from './filter_cols'
+import * as gpxModule from './gpx'
 
 declare module 'leaflet' {
     namespace control {
         function elevation(options?: any): void
-    }
-
-    namespace Polyline {
-        function fromEncoded(encoded: string, options?: any): L.Polyline
     }
 
     export interface Polyline {
@@ -19,7 +15,8 @@ declare module 'leaflet' {
         mid_latlng: Array<number>
         start_latlng: L.LatLngTuple
         end_latlng: L.LatLngTuple
-        encoded: string
+        encoded: string,
+        file: string
     }
 }
 
@@ -43,7 +40,6 @@ class LesCols {
 
     private L: any
     private elevationModule: any
-    private PolylineEncoded: any
     private mapboxToken: string
     readonly mapBoxAPIUrl: string = 'https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token='
     readonly mapInitCoordinates: L.LatLngTuple = [47.02167640440166, 8.653083890676498]
@@ -75,19 +71,18 @@ class LesCols {
     private map: L.Map
     private selectedCol: L.Polyline
     private isSelectedCol: boolean = false
-    private hoveredCol: L.Polyline
     private mapControlElevation: any
     private filterColsList: filterColsListD
 
-    constructor(mapboxToken: string, L: any, elevationModule: any, PolylineEncoded: any, filterColsList: filterColsListD) {
+    constructor(mapboxToken: string, L: any, elevationModule: any, filterColsList: filterColsListD, gpxModule: any) {
 
         this.mapboxToken = mapboxToken
         this.L = L
-        this.PolylineEncoded = PolylineEncoded
         this.elevationModule = elevationModule
         this.mapBoxAPIUrl = this.mapBoxAPIUrl + this.mapboxToken
 
         this.L.control.elevation = this.elevationModule
+        this.L.GPX = gpxModule
         this.mapIconStart = this.L.divIcon({ className: 'start_icon' })
         this.mapIconFinish = this.L.divIcon({ className: 'finish_icon' })
 
@@ -104,19 +99,6 @@ class LesCols {
         this.filterColsList = filterColsList
 
         this.generateApp()
-    }
-
-    generateMiddleLatLng(): Array<L.Polyline> {
-
-        return this.cols.map((col: L.Polyline) => {
-
-            let midLat = (col.start_latlng[0] + col.end_latlng[0]) / 2
-            let midLng = (col.start_latlng[1] + col.end_latlng[1]) / 2
-
-            col.mid_latlng = [midLat, midLng]
-
-            return col
-        })
     }
 
     setColOpacity(col: L.Polyline, opacityLevel: number): void {
@@ -153,39 +135,6 @@ class LesCols {
         this.mapControlElevation.initCustom(this.map)
     }
 
-    applyPathOnMap(col: L.Polyline): L.Polyline {
-
-        let colCoordinates: any = L.Polyline.fromEncoded(col.encoded).getLatLngs()
-
-        let colPolyline: L.Polyline = L.polyline(
-            colCoordinates,
-            {
-                color: this.mapColColorNormal,
-                weight: 4,
-                opacity: .7,
-                lineJoin: 'round'
-            }
-        ).addTo(this.map).bindPopup(col.name, { autoPan: false }).on('click', function () { console.log('col', col.name) })
-
-        let startMarker: L.Marker<any> = L.marker([col.start_latlng[0], col.start_latlng[1]], {
-            icon: this.mapIconStart,
-            title: this.markerTitleStart
-        }).addTo(this.map)
-
-        let finishMarker: L.Marker<any> = L.marker([col.end_latlng[0], col.end_latlng[1]], {
-            icon: this.mapIconFinish,
-            title: this.markerTitleFinish
-        }).addTo(this.map)
-
-        colPolyline.name = col.name
-        colPolyline.startMarker = startMarker
-        colPolyline.finishMarker = finishMarker
-
-        Object.assign(colPolyline, col)
-
-        return colPolyline
-    }
-
     addColToMenu(col: L.Polyline): void {
 
         let menuCol: string = '<li>'
@@ -201,31 +150,26 @@ class LesCols {
         this.menuColsListEl.innerHTML += menuCol
     }
 
-    addEventsToMenuCols() {
-
+    addEventsToMenuCol(col: L.Polyline) {
         let self = this
-        Array.from(this.menuColsEls).forEach(function (menuColEl: Element) {
 
-            menuColEl.addEventListener('click', function () {
-                self.zoomTo(this)
-            })
+        let menuColEl: Element = document.querySelector('.menu_col[data-name="' + col.name + '"]')
 
-            menuColEl.addEventListener('mouseenter', function () {
-                self.passHover(this, self.mapColColorHover)
-            })
-            menuColEl.addEventListener('mouseleave', function () {
-                self.passHover(this, self.mapColColorNormal)
+        menuColEl.addEventListener('click', function () {
+            self.zoomTo(this, col)
+        })
+
+        menuColEl.addEventListener('mouseenter', function () {
+            col.setStyle({
+                color: self.mapColColorHover,
+                opacity: 1
             })
         })
-    }
-
-    passHover(colEl: Element, color: string) {
-
-        let colName = colEl.getAttribute('data-name')
-        this.hoveredCol = this.cols.find((col: L.Polyline) => col.name === colName)
-        this.hoveredCol.setStyle({
-            color: color,
-            opacity: 1
+        menuColEl.addEventListener('mouseleave', function () {
+            col.setStyle({
+                color: self.mapColColorNormal,
+                opacity: 1
+            })
         })
     }
 
@@ -248,12 +192,11 @@ class LesCols {
         this.map.setView(new L.LatLng(lat, lng), 12, { animate: true })
     }
 
-    zoomTo(e: HTMLElement) {
+    zoomTo(e: HTMLElement, col: L.Polyline) {
 
         let colLat: number = parseFloat(e.getAttribute('data-lat'))
         let colLong: number = parseFloat(e.getAttribute('data-long'))
-        let colName: string = e.getAttribute('data-name')
-        this.selectedCol = this.cols.find((col: L.Polyline) => col.name === colName)
+        this.selectedCol = col
         this.removeSelectedState()
 
         e.parentElement.classList.add(this.menuColClassSelected)
@@ -266,6 +209,8 @@ class LesCols {
         fetch('data/coords/' + fileName + '.json').then((res) => {
             return res.json()
         }).then((data) => {
+
+            console.log('data', data);
 
             let obj: ElevationObj = {
                 "name": "demo.geojson",
@@ -319,28 +264,65 @@ class LesCols {
 
     generateApp = async () => {
 
-        this.PolylineEncoded
-
-        const response = await fetch('data/cols.json')
+        const response = await fetch('data/cols1.json')
         this.cols = await response.json()
-
-        this.cols = this.generateMiddleLatLng()
 
         this.setupMap()
 
-        this.cols = this.cols.map(c => {
+        for (let c of this.cols) {
+
+            let thisGpx = await new this.L.GPX('data/' + c.file + '.gpx', {
+                async: true,
+                polyline_options: {
+                    color: this.mapColColorNormal,
+                    weight: 4,
+                    opacity: .7,
+                    lineJoin: 'round'
+                }
+            })
+
+            const s = this
+
+            thisGpx.addTo(this.map).bindPopup(c.name, { autoPan: false }).on('click', function () { console.log('col', c.name) });
+
+            console.log('thisGpx', thisGpx);
+
+            thisGpx.on('loaded', function (e: any) {
+                c = Object.assign(e.target._polyline, c)
+                s.addEventsToMenuCol(c)
+
+                s.cols.forEach(function (col: L.Polyline, i: number) { if (col.file === c.file) s.cols[i] = c; });
+
+            })
+
+            let midLat = (c.start_latlng[0] + c.end_latlng[0]) / 2
+            let midLng = (c.start_latlng[1] + c.end_latlng[1]) / 2
+
+            c.mid_latlng = [midLat, midLng]
+
+            let startMarker: L.Marker<any> = this.L.marker([c.start_latlng[0], c.start_latlng[1]], {
+                icon: this.mapIconStart,
+                title: this.markerTitleStart
+            }).addTo(this.map)
+
+            let finishMarker: L.Marker<any> = this.L.marker([c.end_latlng[0], c.end_latlng[1]], {
+                icon: this.mapIconFinish,
+                title: this.markerTitleFinish
+            }).addTo(this.map)
+
+            c.startMarker = startMarker
+            c.finishMarker = finishMarker
 
             this.addColToMenu(c)
-            c = this.applyPathOnMap(c)
-            return c
 
-        })
+        }
 
         this.addEventToMap()
-        this.addEventsToMenuCols()
         this.addToggleEventToMenu()
         this.filterColsList(this.cols, this.menuColsEls)
+
+
     }
 }
 
-new LesCols(process.env.TOKEN, L, elevationModule, PolylineEncoded, filterColsList)
+new LesCols(process.env.TOKEN, L, elevationModule, filterColsList, gpxModule)

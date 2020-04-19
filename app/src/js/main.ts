@@ -16,7 +16,8 @@ declare module 'leaflet' {
         start_latlng: L.LatLngTuple
         end_latlng: L.LatLngTuple
         encoded: string,
-        file: string
+        file: string,
+        _latlngs: any
     }
 }
 
@@ -205,29 +206,23 @@ class LesCols {
         this.setView(colLat, colLong)
         this.selectedCol.openPopup()
 
-        let fileName = this.selectedCol.name.toLowerCase().replace(/ /g, "_").replace(/ü/g, "u").replace(/\./g, "")
-        fetch('data/coords/' + fileName + '.json').then((res) => {
-            return res.json()
-        }).then((data) => {
+        let elevationData = col._latlngs.map((llm: any) => [llm.lat, llm.lng, llm.meta.ele])
 
-            console.log('data', data);
+        let obj: ElevationObj = {
+            "name": "demo.geojson",
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": elevationData
+                    },
+                    "properties": null
+                }]
+        }
 
-            let obj: ElevationObj = {
-                "name": "demo.geojson",
-                "type": "FeatureCollection",
-                "features": [
-                    {
-                        "type": "Feature",
-                        "geometry": {
-                            "type": "LineString",
-                            "coordinates": data
-                        },
-                        "properties": null
-                    }]
-            }
-
-            this.mapControlElevation.loadDataCustom(obj, this.map)
-        })
+        this.mapControlElevation.loadDataCustom(obj, this.map)
 
     }
 
@@ -264,7 +259,7 @@ class LesCols {
 
     generateApp = async () => {
 
-        const response = await fetch('data/cols1.json')
+        const response = await fetch('data/cols.json')
         this.cols = await response.json()
 
         this.setupMap()
@@ -285,42 +280,48 @@ class LesCols {
 
             thisGpx.addTo(this.map).bindPopup(c.name, { autoPan: false }).on('click', function () { console.log('col', c.name) });
 
-            console.log('thisGpx', thisGpx);
-
             thisGpx.on('loaded', function (e: any) {
+
+                let loadedData = e.target
+
+                let start_lat = loadedData._polyline._latlngs[0].lat
+                let start_lng = loadedData._polyline._latlngs[0].lng
+                let end_lat = loadedData._polyline._latlngs[loadedData._polyline._latlngs.length - 1].lat
+                let end_lng = loadedData._polyline._latlngs[loadedData._polyline._latlngs.length - 1].lng
+
+                let midLat = (start_lat + end_lat) / 2
+                let midLng = (start_lng + end_lng) / 2
+
+                c.mid_latlng = [midLat, midLng]
+
+                let startMarker: L.Marker<any> = s.L.marker([start_lat, start_lng], {
+                    icon: s.mapIconStart,
+                    title: s.markerTitleStart
+                }).addTo(s.map)
+
+                let finishMarker: L.Marker<any> = s.L.marker([end_lat, end_lng], {
+                    icon: s.mapIconFinish,
+                    title: s.markerTitleFinish
+                }).addTo(s.map)
+
+                c.startMarker = startMarker
+                c.finishMarker = finishMarker
+
+
                 c = Object.assign(e.target._polyline, c)
-                s.addEventsToMenuCol(c)
 
                 s.cols.forEach(function (col: L.Polyline, i: number) { if (col.file === c.file) s.cols[i] = c; });
 
+                s.addColToMenu(c)
+                s.addEventsToMenuCol(c)
+
             })
-
-            let midLat = (c.start_latlng[0] + c.end_latlng[0]) / 2
-            let midLng = (c.start_latlng[1] + c.end_latlng[1]) / 2
-
-            c.mid_latlng = [midLat, midLng]
-
-            let startMarker: L.Marker<any> = this.L.marker([c.start_latlng[0], c.start_latlng[1]], {
-                icon: this.mapIconStart,
-                title: this.markerTitleStart
-            }).addTo(this.map)
-
-            let finishMarker: L.Marker<any> = this.L.marker([c.end_latlng[0], c.end_latlng[1]], {
-                icon: this.mapIconFinish,
-                title: this.markerTitleFinish
-            }).addTo(this.map)
-
-            c.startMarker = startMarker
-            c.finishMarker = finishMarker
-
-            this.addColToMenu(c)
 
         }
 
         this.addEventToMap()
         this.addToggleEventToMenu()
         this.filterColsList(this.cols, this.menuColsEls)
-
 
     }
 }

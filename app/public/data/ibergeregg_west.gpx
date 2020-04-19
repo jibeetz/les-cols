@@ -2,19 +2,13 @@
 <gpx creator="StravaGPX" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" xmlns="http://www.topografix.com/GPX/1/1">
  <metadata>
   <name>Ibergeregg</name>
-  <author>
-   <name>Jean-Baptiste Bernus</name>
-   <link href="https://www.strava.com/athletes/39764614"/>
-  </author>
   <copyright author="OpenStreetMap contributors">
    <year>2020</year>
    <license>https://www.openstreetmap.org/copyright</license>
   </copyright>
-  <link href="https://www.strava.com/routes/25611348"/>
  </metadata>
  <trk>
   <name>Ibergeregg</name>
-  <link href="https://www.strava.com/routes/25611348"/>
   <type>Ride</type>
   <trkseg>
    <trkpt lat="47.19888" lon="8.53383">

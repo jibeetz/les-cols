@@ -48,8 +48,8 @@ class LesCols {
     readonly mapIconStart: L.DivIcon
     readonly mapIconFinish: L.DivIcon
 
-    readonly mapColColorNormal: string = '#0026af'
-    readonly mapColColorHover: string = '#008aff'
+    readonly mapColColorNormal: string = '#d41111'
+    readonly mapColColorHover: string = '#8f0a0a'
     readonly menuColClassSelected: string = 'selected'
     readonly markerTitleStart: string = 'Start'
     readonly markerTitleFinish: string = 'Finish'
@@ -270,8 +270,8 @@ class LesCols {
                 async: true,
                 polyline_options: {
                     color: this.mapColColorNormal,
-                    weight: 4,
-                    opacity: .7,
+                    weight: 3,
+                    opacity: 1,
                     lineJoin: 'round'
                 }
             })

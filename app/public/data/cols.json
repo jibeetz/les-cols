@@ -1,6 +1,6 @@
 [
     {
-        "name": "Ibergeregg West",
+        "name": "Ibergeregg",
         "countries": [
             "CH"
         ],
@@ -8,7 +8,7 @@
             "alps"
         ],
         "climb_category": 5,
-        "file": "ibergeregg_west"
+        "file": "ibergeregg"
     },
     {
         "name": "Brünigpass",

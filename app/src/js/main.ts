@@ -138,23 +138,22 @@ class LesCols {
 
     addColToMenu(col: L.Polyline): void {
 
-        let menuCol: string = '<li>'
-        menuCol += '<a href="#' + col.name.replace(/ /g, '_').toLowerCase() + '" '
-        menuCol += 'class="menu_col" '
-        menuCol += 'data-name="' + col.name + '" '
-        menuCol += 'data-lat="' + col.mid_latlng[0] + '" '
-        menuCol += 'data-long="' + col.mid_latlng[1] + '">'
-        menuCol += col.name
-        menuCol += '</a>'
-        menuCol += '</li>'
+        let menuCol = document.createElement('li');
+        let menuColLink = document.createElement('a');
+        menuColLink.href = '#' + col.file
+        menuColLink.className = 'menu_col'
+        menuColLink.setAttribute('data-name', col.file)
+        menuColLink.innerHTML = col.name
 
-        this.menuColsListEl.innerHTML += menuCol
+        menuCol.appendChild(menuColLink);
+
+        this.menuColsListEl.appendChild(menuCol)
     }
 
     addEventsToMenuCol(col: L.Polyline) {
         let self = this
 
-        let menuColEl: Element = document.querySelector('.menu_col[data-name="' + col.name + '"]')
+        let menuColEl: Element = document.querySelector('.menu_col[data-name="' + col.file + '"]')
 
         menuColEl.addEventListener('click', function () {
             self.zoomTo(this, col)
@@ -195,8 +194,8 @@ class LesCols {
 
     zoomTo(e: HTMLElement, col: L.Polyline) {
 
-        let colLat: number = parseFloat(e.getAttribute('data-lat'))
-        let colLong: number = parseFloat(e.getAttribute('data-long'))
+        let colLat: number = col.mid_latlng[0]
+        let colLong: number = col.mid_latlng[1]
         this.selectedCol = col
         this.removeSelectedState()
 

@@ -10,11 +10,7 @@
 
 .leaflet-control.elevation .background {
   background-color: rgba(70, 130, 180, 0.8);
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  -webkit-border-radius: 5px;
+  border-radius: 0;
   overflow: visible;
 }
 
@@ -181,12 +177,26 @@
   transition: 0.3s;
 }
 
-#elevation-div {
+.viewport {
+  overflow: hidden;
+  height: 100vh;
   width: 100%;
+  position: relative;
+}
+
+#elevation-div {
+  width: calc(100% - 250px);
   padding: 0px;
   margin: 0px;
   height: 25%;
   font: 12px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
+  transform: translate3d(0, 100%, 0);
+  transition: transform 0.3s;
+
+  &.visible {
+    transform: translate3d(0, 0, 0);
+
+  }
 }
 
 .data-summary {

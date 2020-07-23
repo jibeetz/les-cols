@@ -17,7 +17,12 @@ declare module 'leaflet' {
         end_latlng: L.LatLngTuple
         encoded: string,
         file: string,
-        _latlngs: any
+        _latlngs: any,
+        distance: number,
+        elevation_min: number,
+        elevation_max: number,
+        elevation_gain: number,
+        elevation_loss: number,
     }
 }
 
@@ -67,11 +72,11 @@ class LesCols {
     private menuEl: HTMLElement = document.getElementById('menu')
     private menuColsListEl: HTMLElement = document.getElementById('cols_list')
     private menuToggleTriggerEl: HTMLElement = document.getElementById('toggle_list_trigger')
+    private elevationContainerEl: HTMLElement = document.getElementById('elevation-div')
 
     private cols: Array<L.Polyline>
     private map: L.Map
-    private selectedCol: L.Polyline
-    private isSelectedCol: boolean = false
+    private selectedCol: L.Polyline = null
     private mapControlElevation: any
     private filterColsList: filterColsListD
 
@@ -143,7 +148,7 @@ class LesCols {
         menuColLink.href = '#' + col.file
         menuColLink.className = 'menu_col'
         menuColLink.setAttribute('data-name', col.file)
-        menuColLink.innerHTML = col.name
+        menuColLink.innerHTML = col.name + '-' + col.distance
 
         menuCol.appendChild(menuColLink);
 
@@ -201,7 +206,6 @@ class LesCols {
 
         e.parentElement.classList.add(this.menuColClassSelected)
 
-        this.isSelectedCol = false
         this.setView(colLat, colLong)
         this.selectedCol.openPopup()
 
@@ -221,35 +225,32 @@ class LesCols {
                 }]
         }
 
+        this.elevationContainerEl.classList.add('visible')
+
+        for (var col of this.cols) {
+            let opacity = (col !== this.selectedCol) ? 0.4 : 1
+            this.setColOpacity(col, opacity)
+        }
+
         this.mapControlElevation.loadDataCustom(obj, this.map)
 
     }
 
     addEventToMap() {
 
-        this.map.on('moveend click', () => {
+        this.map.on('click', () => {
 
-            if (this.isSelectedCol) {
+            if (this.selectedCol) {
                 for (var col of this.cols) {
                     this.setColOpacity(col, 1)
                 }
 
-                this.isSelectedCol = false
-                this.selectedCol = undefined
+                this.selectedCol = null
 
                 this.removeSelectedState()
-            }
 
-            if (typeof this.selectedCol !== 'undefined') {
-                for (var col of this.cols) {
-                    if (col !== this.selectedCol) {
-                        this.setColOpacity(col, 0.4)
-                    } else {
-                        this.setColOpacity(col, 1)
-                    }
-                }
-
-                this.isSelectedCol = true
+                this.elevationContainerEl.classList.remove('visible')
+                return;
             }
 
         })
@@ -306,6 +307,12 @@ class LesCols {
                 c.startMarker = startMarker
                 c.finishMarker = finishMarker
 
+                c.distance = loadedData.get_distance()
+                
+                c.elevation_min = loadedData.get_elevation_min()
+                c.elevation_max = loadedData.get_elevation_max()
+                c.elevation_gain = loadedData.get_elevation_gain()
+                c.elevation_loss = loadedData.get_elevation_loss()
 
                 c = Object.assign(e.target._polyline, c)
 

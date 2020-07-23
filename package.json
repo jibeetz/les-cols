@@ -22,7 +22,7 @@
     "i": "^0.3.6",
     "imagemin": "^7.0.1",
     "mini-css-extract-plugin": "^0.9.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "4.12.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "sass-loader": "^8.0.0",
     "ts-loader": "^6.2.1",

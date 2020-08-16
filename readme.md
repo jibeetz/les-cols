@@ -1,7 +1,5 @@
 # Les cols
 
-https://les-cols.tarabucetta.com
-
 ## Run locally
 
 `npm install`
